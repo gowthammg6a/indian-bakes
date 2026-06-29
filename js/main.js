@@ -85,15 +85,50 @@ function detectLocation() {
       const userLng = pos.coords.longitude;
       const nearest = findNearestBranch(userLat, userLng);
       status.textContent = `✅ Nearest branch found: ${BRANCHES[nearest].name}`;
+      status.style.color = '#27ae60';
       document.getElementById('branch-' + nearest)?.classList.add('selected');
       setTimeout(() => selectBranch(nearest), 1200);
     },
-    () => {
-      status.textContent = '⚠️ Location denied. Please select your branch manually.';
-      btn.disabled = false;
-      btn.innerHTML = '<span class="icon">📍</span> Auto Detect Location';
+    (err) => {
+      // Geolocation failed — try IP-based fallback
+      status.textContent = '📡 Trying alternate detection...';
+      tryIPLocation(btn, status);
+    },
+    {
+      timeout: 8000,
+      maximumAge: 60000,
+      enableHighAccuracy: false
     }
   );
+}
+
+function tryIPLocation(btn, status) {
+  // Use IP geolocation as fallback (free service)
+  fetch('https://ipapi.co/json/')
+    .then(r => r.json())
+    .then(data => {
+      if (data.latitude && data.longitude) {
+        const nearest = findNearestBranch(data.latitude, data.longitude);
+        status.textContent = `✅ Nearest branch: ${BRANCHES[nearest].name}`;
+        status.style.color = '#27ae60';
+        document.getElementById('branch-' + nearest)?.classList.add('selected');
+        setTimeout(() => selectBranch(nearest), 1200);
+      } else {
+        showLocationError(btn, status);
+      }
+    })
+    .catch(() => showLocationError(btn, status));
+}
+
+function showLocationError(btn, status) {
+  status.textContent = '⚠️ Could not detect location. Please select your branch manually below.';
+  status.style.color = '#e74c3c';
+  btn.disabled = false;
+  btn.innerHTML = '<span class="icon">📍</span> Try Again';
+  // Highlight the branch buttons to guide user
+  document.querySelectorAll('.branch-btn').forEach(b => {
+    b.style.animation = 'pulse 1s ease 3';
+  });
 }
 
 function findNearestBranch(lat, lng) {
@@ -104,6 +139,7 @@ function findNearestBranch(lat, lng) {
   });
   return nearest;
 }
+
 
 function applyBranchStock(branchId) {
   const stock = BRANCH_STOCK[branchId];
