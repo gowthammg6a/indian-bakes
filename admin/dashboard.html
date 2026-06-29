@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard – Ibee Admin</title>
+  <title>Dashboard â€“ Ibee Admin</title>
   <link rel="icon" href="../images/logo.jpg" type="image/jpeg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -55,28 +55,28 @@
       <nav class="admin-nav">
         <p class="admin-nav-label">Main</p>
         <a href="#overview" class="admin-nav-item active" onclick="showSection('overview', this)">
-          <span class="admin-nav-icon">📊</span> Overview
+          <span class="admin-nav-icon">ðŸ“Š</span> Overview
         </a>
         <a href="#orders" class="admin-nav-item" onclick="showSection('orders', this)">
-          <span class="admin-nav-icon">📋</span> Orders
+          <span class="admin-nav-icon">ðŸ“‹</span> Orders
           <span class="notification-dot"></span>
         </a>
         <a href="#menu-control" class="admin-nav-item" onclick="showSection('menu-control', this)">
-          <span class="admin-nav-icon">🍽️</span> Menu Control
+          <span class="admin-nav-icon">ðŸ½ï¸</span> Menu Control
         </a>
         <a href="#performance" class="admin-nav-item" onclick="showSection('performance', this)">
-          <span class="admin-nav-icon">📈</span> Performance
+          <span class="admin-nav-icon">ðŸ“ˆ</span> Performance
         </a>
         <p class="admin-nav-label">Management</p>
         <a href="#branches-mgmt" class="admin-nav-item" onclick="showSection('branches-mgmt', this)">
-          <span class="admin-nav-icon">🏪</span> Branches
+          <span class="admin-nav-icon">ðŸª</span> Branches
         </a>
         <a href="../index.html" class="admin-nav-item">
-          <span class="admin-nav-icon">🌐</span> View Website
+          <span class="admin-nav-icon">ðŸŒ</span> View Website
         </a>
       </nav>
       <div class="admin-sidebar-footer">
-        <button class="btn-logout" onclick="logout()">🚪 Logout</button>
+        <button class="btn-logout" onclick="logout()">ðŸšª Logout</button>
       </div>
     </aside>
 
@@ -105,28 +105,28 @@
         <!-- Stats -->
         <div class="stats-grid">
           <div class="stat-card">
-            <div class="stat-card-icon">💰</div>
+            <div class="stat-card-icon">ðŸ’°</div>
             <div class="stat-card-label">Today's Revenue</div>
-            <div class="stat-card-value" id="stat-revenue">₹12,480</div>
-            <div class="stat-card-change change-up">▲ 18% vs yesterday</div>
+            <div class="stat-card-value" id="stat-revenue">â‚¹12,480</div>
+            <div class="stat-card-change change-up">â–² 18% vs yesterday</div>
           </div>
           <div class="stat-card">
-            <div class="stat-card-icon">📦</div>
+            <div class="stat-card-icon">ðŸ“¦</div>
             <div class="stat-card-label">Total Orders</div>
             <div class="stat-card-value" id="stat-orders">148</div>
-            <div class="stat-card-change change-up">▲ 12 new today</div>
+            <div class="stat-card-change change-up">â–² 12 new today</div>
           </div>
           <div class="stat-card">
-            <div class="stat-card-icon">⏳</div>
+            <div class="stat-card-icon">â³</div>
             <div class="stat-card-label">Pending Orders</div>
             <div class="stat-card-value" id="stat-pending" style="color:#f1c40f;">7</div>
-            <div class="stat-card-change change-down">▼ Needs attention</div>
+            <div class="stat-card-change change-down">â–¼ Needs attention</div>
           </div>
           <div class="stat-card">
-            <div class="stat-card-icon">⭐</div>
+            <div class="stat-card-icon">â­</div>
             <div class="stat-card-label">Avg. Rating</div>
             <div class="stat-card-value">4.8</div>
-            <div class="stat-card-change change-up">▲ Excellent</div>
+            <div class="stat-card-change change-up">â–² Excellent</div>
           </div>
         </div>
 
@@ -134,13 +134,13 @@
         <div class="admin-grid-2">
           <!-- Weekly Sales Chart -->
           <div class="admin-panel">
-            <h3>📊 Weekly Sales</h3>
+            <h3>ðŸ“Š Weekly Sales</h3>
             <div class="chart-bar-wrap" id="sales-chart"></div>
             <div style="display:flex;gap:8px;margin-top:8px;" id="chart-labels"></div>
           </div>
           <!-- Top Items -->
           <div class="admin-panel">
-            <h3>🔥 Top Selling Items</h3>
+            <h3>ðŸ”¥ Top Selling Items</h3>
             <div class="top-items-list">
               <div class="top-item-row">
                 <div class="top-item-rank">1</div>
@@ -178,21 +178,21 @@
 
         <!-- Branch Performance -->
         <div class="admin-panel" style="margin-top:24px;">
-          <h3>🏪 Branch Performance Today</h3>
+          <h3>ðŸª Branch Performance Today</h3>
           <div class="performance-row">
-            <div class="perf-branch">📍 Tiruchengode (Main)</div>
+            <div class="perf-branch">ðŸ“ Tiruchengode (Main)</div>
             <div class="perf-bar-track"><div class="perf-bar-fill" style="width:88%"></div></div>
-            <div class="perf-val">₹5,840</div>
+            <div class="perf-val">â‚¹5,840</div>
           </div>
           <div class="performance-row">
-            <div class="perf-branch">📍 Sankagiri</div>
+            <div class="perf-branch">ðŸ“ Sankagiri</div>
             <div class="perf-bar-track"><div class="perf-bar-fill" style="width:64%"></div></div>
-            <div class="perf-val">₹4,280</div>
+            <div class="perf-val">â‚¹4,280</div>
           </div>
           <div class="performance-row">
-            <div class="perf-branch">📍 Kootapalli</div>
+            <div class="perf-branch">ðŸ“ Kootapalli</div>
             <div class="perf-bar-track"><div class="perf-bar-fill" style="width:35%"></div></div>
-            <div class="perf-val">₹2,360</div>
+            <div class="perf-val">â‚¹2,360</div>
           </div>
         </div>
       </section>
@@ -200,7 +200,7 @@
       <!-- ===== ORDERS SECTION ===== -->
       <section id="section-orders" style="display:none;">
         <div class="admin-panel">
-          <h3>📋 Pending Orders <span style="background:rgba(241,196,15,0.2);color:#f1c40f;padding:2px 10px;border-radius:20px;font-size:0.75rem;margin-left:8px;">7 Pending</span></h3>
+          <h3>ðŸ“‹ Pending Orders <span style="background:rgba(241,196,15,0.2);color:#f1c40f;padding:2px 10px;border-radius:20px;font-size:0.75rem;margin-left:8px;">7 Pending</span></h3>
           <div style="overflow-x:auto;">
             <table class="admin-table" id="orders-table">
               <thead>
@@ -223,7 +223,7 @@
       <!-- ===== MENU CONTROL SECTION ===== -->
       <section id="section-menu-control" style="display:none;">
         <div class="admin-panel">
-          <h3>🍽️ Branch Stock Control</h3>
+          <h3>ðŸ½ï¸ Branch Stock Control</h3>
           <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:24px;">Toggle items ON/OFF per branch. Disabled items will be automatically hidden from that branch's menu on the website.</p>
           <div class="toggle-grid" id="stock-toggle-grid"></div>
         </div>
@@ -233,46 +233,46 @@
       <section id="section-performance" style="display:none;">
         <div class="stats-grid" style="margin-bottom:24px;">
           <div class="stat-card">
-            <div class="stat-card-icon">📅</div>
+            <div class="stat-card-icon">ðŸ“…</div>
             <div class="stat-card-label">This Week Revenue</div>
-            <div class="stat-card-value">₹68,240</div>
-            <div class="stat-card-change change-up">▲ 22% vs last week</div>
+            <div class="stat-card-value">â‚¹68,240</div>
+            <div class="stat-card-change change-up">â–² 22% vs last week</div>
           </div>
           <div class="stat-card">
-            <div class="stat-card-icon">📅</div>
+            <div class="stat-card-icon">ðŸ“…</div>
             <div class="stat-card-label">This Month Revenue</div>
-            <div class="stat-card-value">₹2.4L</div>
-            <div class="stat-card-change change-up">▲ 15% vs last month</div>
+            <div class="stat-card-value">â‚¹2.4L</div>
+            <div class="stat-card-change change-up">â–² 15% vs last month</div>
           </div>
           <div class="stat-card">
-            <div class="stat-card-icon">🧾</div>
+            <div class="stat-card-icon">ðŸ§¾</div>
             <div class="stat-card-label">Total Orders (Month)</div>
             <div class="stat-card-value">1,842</div>
-            <div class="stat-card-change change-up">▲ Growing steadily</div>
+            <div class="stat-card-change change-up">â–² Growing steadily</div>
           </div>
           <div class="stat-card">
-            <div class="stat-card-icon">👥</div>
+            <div class="stat-card-icon">ðŸ‘¥</div>
             <div class="stat-card-label">Unique Customers</div>
             <div class="stat-card-value">624</div>
-            <div class="stat-card-change change-up">▲ 48 new this month</div>
+            <div class="stat-card-change change-up">â–² 48 new this month</div>
           </div>
         </div>
         <div class="admin-panel">
-          <h3>📈 Monthly Branch Comparison</h3>
+          <h3>ðŸ“ˆ Monthly Branch Comparison</h3>
           <div class="performance-row" style="margin-top:16px;">
             <div class="perf-branch">Tiruchengode</div>
             <div class="perf-bar-track"><div class="perf-bar-fill" style="width:90%"></div></div>
-            <div class="perf-val">₹1.1L</div>
+            <div class="perf-val">â‚¹1.1L</div>
           </div>
           <div class="performance-row">
             <div class="perf-branch">Sankagiri</div>
             <div class="perf-bar-track"><div class="perf-bar-fill" style="width:68%"></div></div>
-            <div class="perf-val">₹82K</div>
+            <div class="perf-val">â‚¹82K</div>
           </div>
           <div class="performance-row">
             <div class="perf-branch">Kootapalli</div>
             <div class="perf-bar-track"><div class="perf-bar-fill" style="width:40%"></div></div>
-            <div class="perf-val">₹48K</div>
+            <div class="perf-val">â‚¹48K</div>
           </div>
         </div>
       </section>
@@ -281,18 +281,18 @@
       <section id="section-branches-mgmt" style="display:none;">
         <div class="admin-grid-2">
           <div class="admin-panel">
-            <h3>🏪 Branch Status</h3>
+            <h3>ðŸª Branch Status</h3>
             <table class="admin-table">
               <thead><tr><th>Branch</th><th>Status</th><th>Orders Today</th><th>Revenue</th></tr></thead>
               <tbody>
-                <tr><td>Tiruchengode</td><td><span class="status-badge status-ready">● Open</span></td><td>62</td><td>₹5,840</td></tr>
-                <tr><td>Sankagiri</td><td><span class="status-badge status-ready">● Open</span></td><td>51</td><td>₹4,280</td></tr>
-                <tr><td>Kootapalli</td><td><span class="status-badge status-ready">● Open</span></td><td>35</td><td>₹2,360</td></tr>
+                <tr><td>Tiruchengode</td><td><span class="status-badge status-ready">â— Open</span></td><td>62</td><td>â‚¹5,840</td></tr>
+                <tr><td>Sankagiri</td><td><span class="status-badge status-ready">â— Open</span></td><td>51</td><td>â‚¹4,280</td></tr>
+                <tr><td>Kootapalli</td><td><span class="status-badge status-ready">â— Open</span></td><td>35</td><td>â‚¹2,360</td></tr>
               </tbody>
             </table>
           </div>
           <div class="admin-panel">
-            <h3>📞 Branch Contacts</h3>
+            <h3>ðŸ“ž Branch Contacts</h3>
             <table class="admin-table">
               <thead><tr><th>Branch</th><th>Phone</th><th>Manager</th></tr></thead>
               <tbody>
@@ -305,7 +305,56 @@
         </div>
       </section>
 
-    </main>
+    <div id="ibee_orders_section" style="margin-top:24px;">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+  <h3 style="font-family:Playfair Display,serif;color:#FDF6EC;font-size:1.2rem;">📦 Recent Orders (from Website)</h3>
+  <div style="display:flex;gap:8px;">
+    <button onclick="loadOrders()" style="background:rgba(212,168,67,0.15);border:1px solid rgba(212,168,67,0.3);color:#D4A843;padding:6px 14px;border-radius:20px;cursor:pointer;font-size:0.8rem;font-family:Outfit,sans-serif;">🔄 Refresh</button>
+    <button onclick="if(confirm('Clear all orders?')){{localStorage.removeItem('ibee_orders');loadOrders();}}" style="background:rgba(231,76,60,0.1);border:1px solid rgba(231,76,60,0.3);color:#e74c3c;padding:6px 14px;border-radius:20px;cursor:pointer;font-size:0.8rem;font-family:Outfit,sans-serif;">🗑️ Clear</button>
+  </div>
+</div>
+<div id="orders-list-admin"></div>
+</div>
+<script>
+function loadOrders(){
+  var orders=JSON.parse(localStorage.getItem('ibee_orders')||'[]');
+  var el=document.getElementById('orders-list-admin');
+  if(!el)return;
+  if(!orders.length){el.innerHTML='<div style="text-align:center;padding:32px;color:#A89070;border:1px dashed rgba(255,255,255,0.1);border-radius:12px;">No online orders yet. Orders from the order page will appear here.</div>';return;}
+  var html='<div style="display:flex;flex-direction:column;gap:12px;">';
+  orders.forEach(function(o){
+    var statusColor=o.status==='pending'?'#f39c12':o.status==='ready'?'#27ae60':'#e74c3c';
+    var itemsList=o.items?o.items.map(function(i){return i.name+' x'+i.qty;}).join(', '):'';
+    html+='<div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:16px;display:grid;grid-template-columns:1fr auto;gap:12px;">';
+    html+='<div>';
+    html+='<div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">';
+    html+='<span style="font-weight:700;color:#FDF6EC;font-size:0.95rem;">'+o.name+'</span>';
+    html+='<span style="font-size:0.72rem;padding:2px 10px;border-radius:20px;background:rgba(212,168,67,0.1);color:#D4A843;">'+o.branch+'</span>';
+    html+='<span style="font-size:0.72rem;padding:2px 10px;border-radius:20px;background:rgba(255,255,255,0.06);color:#A89070;">'+(o.type==='delivery'?'🛵 Delivery':'🏪 Pickup')+'</span>';
+    html+='</div>';
+    html+='<div style="color:#A89070;font-size:0.82rem;margin-bottom:4px;">📞 '+o.phone+'</div>';
+    html+='<div style="color:#A89070;font-size:0.78rem;">'+itemsList+'</div>';
+    html+='<div style="color:#A89070;font-size:0.72rem;margin-top:4px;">'+o.time+'</div>';
+    html+='</div>';
+    html+='<div style="text-align:right;">';
+    html+='<div style="font-size:1.2rem;font-weight:800;color:#D4A843;margin-bottom:8px;">₹'+o.total+'</div>';
+    html+='<select onchange="updateOrderStatus(\''+o.id+'\',this.value)" style="background:#1A1008;border:1px solid rgba(255,255,255,0.1);color:'+statusColor+';border-radius:8px;padding:5px 8px;font-size:0.78rem;font-family:Outfit,sans-serif;">';
+    html+='<option value="pending"'+(o.status==='pending'?' selected':'')+'>⏳ Pending</option>';
+    html+='<option value="ready"'+(o.status==='ready'?' selected':'')+'>✅ Ready</option>';
+    html+='<option value="cancelled"'+(o.status==='cancelled'?' selected':'')+'>❌ Cancelled</option>';
+    html+='</select></div></div>';
+  });
+  html+='</div>';
+  el.innerHTML=html;
+}
+function updateOrderStatus(id,status){
+  var orders=JSON.parse(localStorage.getItem('ibee_orders')||'[]');
+  var o=orders.find(function(x){return x.id===id;});
+  if(o){o.status=status;localStorage.setItem('ibee_orders',JSON.stringify(orders));loadOrders();}
+}
+document.addEventListener('DOMContentLoaded',function(){loadOrders();setInterval(loadOrders,15000);});
+</script>
+</main>
   </div>
 
   <script>
@@ -317,14 +366,14 @@
     const adminBranch = sessionStorage.getItem('ibee_admin_branch') || 'all';
     document.getElementById('admin-branch-filter').value = adminBranch;
     document.getElementById('branch-display-top').textContent =
-      adminBranch === 'all' ? 'All Branches — Super Admin View' : adminBranch.charAt(0).toUpperCase() + adminBranch.slice(1) + ' Branch';
+      adminBranch === 'all' ? 'All Branches â€” Super Admin View' : adminBranch.charAt(0).toUpperCase() + adminBranch.slice(1) + ' Branch';
 
     // Clock
     function updateClock() {
       const now = new Date();
       document.getElementById('clock-display').textContent =
         now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }) +
-        ' · ' + now.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' });
+        ' Â· ' + now.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' });
     }
     updateClock(); setInterval(updateClock, 1000);
 
@@ -359,7 +408,7 @@
       const bar = document.createElement('div');
       bar.className = 'chart-bar';
       bar.style.cssText = `height:${pct}%;background:${colors[i]};`;
-      bar.innerHTML = `<span class="chart-bar-val">₹${(d.val/1000).toFixed(1)}k</span>`;
+      bar.innerHTML = `<span class="chart-bar-val">â‚¹${(d.val/1000).toFixed(1)}k</span>`;
       chartEl.appendChild(bar);
       const label = document.createElement('div');
       label.className = 'chart-bar-label';
@@ -370,13 +419,13 @@
 
     // Orders Table
     const ordersData = [
-      { id: '#IB-001', branch: 'Tiruchengode', items: 'Loaded Fries × 2, Juice × 1', amount: '₹277', time: '10 min ago', status: 'pending' },
-      { id: '#IB-002', branch: 'Sankagiri', items: 'Burger × 1, Pasta × 1', amount: '₹250', time: '15 min ago', status: 'pending' },
-      { id: '#IB-003', branch: 'Kootapalli', items: 'Croissant × 3', amount: '₹135', time: '20 min ago', status: 'ready' },
-      { id: '#IB-004', branch: 'Tiruchengode', items: 'Momo Platter × 2', amount: '₹220', time: '25 min ago', status: 'pending' },
-      { id: '#IB-005', branch: 'Sankagiri', items: 'Chicken Strips × 1, Juice × 2', amount: '₹327', time: '30 min ago', status: 'delivered' },
-      { id: '#IB-006', branch: 'Kootapalli', items: 'Cake × 1 (custom)', amount: '₹450', time: '45 min ago', status: 'delivered' },
-      { id: '#IB-007', branch: 'Tiruchengode', items: 'Bread × 5, Croissant × 2', amount: '₹240', time: '1 hr ago', status: 'pending' },
+      { id: '#IB-001', branch: 'Tiruchengode', items: 'Loaded Fries Ã— 2, Juice Ã— 1', amount: 'â‚¹277', time: '10 min ago', status: 'pending' },
+      { id: '#IB-002', branch: 'Sankagiri', items: 'Burger Ã— 1, Pasta Ã— 1', amount: 'â‚¹250', time: '15 min ago', status: 'pending' },
+      { id: '#IB-003', branch: 'Kootapalli', items: 'Croissant Ã— 3', amount: 'â‚¹135', time: '20 min ago', status: 'ready' },
+      { id: '#IB-004', branch: 'Tiruchengode', items: 'Momo Platter Ã— 2', amount: 'â‚¹220', time: '25 min ago', status: 'pending' },
+      { id: '#IB-005', branch: 'Sankagiri', items: 'Chicken Strips Ã— 1, Juice Ã— 2', amount: 'â‚¹327', time: '30 min ago', status: 'delivered' },
+      { id: '#IB-006', branch: 'Kootapalli', items: 'Cake Ã— 1 (custom)', amount: 'â‚¹450', time: '45 min ago', status: 'delivered' },
+      { id: '#IB-007', branch: 'Tiruchengode', items: 'Bread Ã— 5, Croissant Ã— 2', amount: 'â‚¹240', time: '1 hr ago', status: 'pending' },
     ];
     const tbody = document.getElementById('orders-tbody');
     ordersData.forEach(o => {
@@ -390,8 +439,8 @@
         <td><span class="status-badge status-${o.status}">${o.status.charAt(0).toUpperCase() + o.status.slice(1)}</span></td>
         <td>
           <div class="order-actions">
-            ${o.status === 'pending' ? `<button class="btn-order-action btn-ready" onclick="markReady(this, '${o.id}')">✓ Ready</button>` : ''}
-            ${o.status === 'pending' ? `<button class="btn-order-action btn-cancel" onclick="cancelOrder(this, '${o.id}')">✕</button>` : ''}
+            ${o.status === 'pending' ? `<button class="btn-order-action btn-ready" onclick="markReady(this, '${o.id}')">âœ“ Ready</button>` : ''}
+            ${o.status === 'pending' ? `<button class="btn-order-action btn-cancel" onclick="cancelOrder(this, '${o.id}')">âœ•</button>` : ''}
           </div>
         </td>
       `;
@@ -402,7 +451,7 @@
       const row = btn.closest('tr');
       row.querySelector('.status-badge').className = 'status-badge status-ready';
       row.querySelector('.status-badge').textContent = 'Ready';
-      btn.closest('.order-actions').innerHTML = '<span style="color:#27ae60;font-size:0.78rem;">✓ Marked Ready</span>';
+      btn.closest('.order-actions').innerHTML = '<span style="color:#27ae60;font-size:0.78rem;">âœ“ Marked Ready</span>';
       const pendingEl = document.getElementById('stat-pending');
       if (pendingEl) pendingEl.textContent = Math.max(0, parseInt(pendingEl.textContent) - 1);
     }
@@ -417,17 +466,17 @@
 
     // Stock Toggles
     const MENU_ITEMS = [
-      { id: 'bread', name: '🍞 Fresh Bread' },
-      { id: 'croissant', name: '🥐 Butter Croissant' },
-      { id: 'cake', name: '🎂 Celebration Cake' },
-      { id: 'burger', name: '🍔 Special Burger' },
-      { id: 'fries', name: '🍟 Loaded Fries' },
-      { id: 'pannerfries', name: '🧀 Paneer Loaded Fries' },
-      { id: 'momos', name: '🥟 Momo Platter' },
-      { id: 'pasta', name: '🍝 White Sauce Pasta' },
-      { id: 'strips', name: '🍗 Chicken Strips' },
-      { id: 'sticks', name: '🍢 Fired Sticks' },
-      { id: 'juice', name: '🥤 Tower Juice' },
+      { id: 'bread', name: 'ðŸž Fresh Bread' },
+      { id: 'croissant', name: 'ðŸ¥ Butter Croissant' },
+      { id: 'cake', name: 'ðŸŽ‚ Celebration Cake' },
+      { id: 'burger', name: 'ðŸ” Special Burger' },
+      { id: 'fries', name: 'ðŸŸ Loaded Fries' },
+      { id: 'pannerfries', name: 'ðŸ§€ Paneer Loaded Fries' },
+      { id: 'momos', name: 'ðŸ¥Ÿ Momo Platter' },
+      { id: 'pasta', name: 'ðŸ White Sauce Pasta' },
+      { id: 'strips', name: 'ðŸ— Chicken Strips' },
+      { id: 'sticks', name: 'ðŸ¢ Fired Sticks' },
+      { id: 'juice', name: 'ðŸ¥¤ Tower Juice' },
     ];
     const BRANCHES_ADMIN = ['tiruchengode', 'sankagiri', 'kootapalli'];
     const STOCK_DEFAULTS = {
@@ -440,7 +489,7 @@
     BRANCHES_ADMIN.forEach(branch => {
       const section = document.createElement('div');
       section.className = 'branch-stock-section';
-      section.innerHTML = `<div class="branch-stock-header">📍 ${branch.charAt(0).toUpperCase() + branch.slice(1)}</div>`;
+      section.innerHTML = `<div class="branch-stock-header">ðŸ“ ${branch.charAt(0).toUpperCase() + branch.slice(1)}</div>`;
       MENU_ITEMS.forEach(item => {
         const isOn = STOCK_DEFAULTS[branch][item.id] !== false;
         const row = document.createElement('div');
@@ -458,14 +507,14 @@
     });
 
     function onStockToggle(branch, item, val) {
-      console.log(`[Stock] ${branch} → ${item}: ${val ? 'Available' : 'Out of Stock'}`);
+      console.log(`[Stock] ${branch} â†’ ${item}: ${val ? 'Available' : 'Out of Stock'}`);
       // In production, this would call an API to update the database
     }
 
     function updateBranchFilter(val) {
       sessionStorage.setItem('ibee_admin_branch', val);
       document.getElementById('branch-display-top').textContent =
-        val === 'all' ? 'All Branches — Super Admin View' : val.charAt(0).toUpperCase() + val.slice(1) + ' Branch';
+        val === 'all' ? 'All Branches â€” Super Admin View' : val.charAt(0).toUpperCase() + val.slice(1) + ' Branch';
     }
 
     function logout() {

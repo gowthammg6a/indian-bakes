@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ibee Resto Cafe – Indian Bakes | Tiruchengode | Sankagiri | Kootapalli</title>
-  <meta name="description" content="Ibee Resto Cafe – Indian Bakes. Fresh bakes, burgers, beverages & more. Multiple branches across Tiruchengode, Sankagiri, and Kootapalli. Order online today!" />
+  <title>Ibee Resto Cafe â€“ Indian Bakes | Tiruchengode | Sankagiri | Kootapalli</title>
+  <meta name="description" content="Ibee Resto Cafe â€“ Indian Bakes. Fresh bakes, burgers, beverages & more. Multiple branches across Tiruchengode, Sankagiri, and Kootapalli. Order online today!" />
   <link rel="icon" href="images/logo.jpg" type="image/jpeg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,6 +12,16 @@
   <link rel="stylesheet" href="css/style.css" />`n  <link rel="stylesheet" href="css/mobile.css" />
 </head>
 <body>
+  <!-- TODAY'S SPECIAL BANNER -->
+  <div id="todays-special-banner" style="background:linear-gradient(135deg,#7B2D00,#D4A843);padding:14px 20px;text-align:center;position:relative;z-index:50;">
+    <div style="max-width:800px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;">
+      <span style="font-size:1.3rem;">🔥</span>
+      <span style="font-family:'Playfair Display',serif;color:#FDF6EC;font-size:1rem;font-weight:600;" id="special-text">Today's Special: Momo Platter + Tower Juice Combo at ₹179!</span>
+      <a href="order.html" style="background:#FDF6EC;color:#7B2D00;border-radius:20px;padding:6px 18px;font-size:0.82rem;font-weight:800;text-decoration:none;white-space:nowrap;">Order Now</a>
+      <button onclick="document.getElementById('todays-special-banner').style.display='none'" style="background:none;border:none;color:rgba(255,255,255,0.7);cursor:pointer;font-size:1.2rem;position:absolute;right:16px;top:50%;transform:translateY(-50%);">✕</button>
+    </div>
+  </div>
+
 
   <!-- ===== BRANCH SELECTOR OVERLAY ===== -->
   <div id="branch-overlay" class="branch-overlay active">
@@ -22,27 +32,27 @@
         <p class="branch-subtitle">Indian Bakes</p>
       </div>
       <div class="branch-card">
-        <p class="branch-prompt">🗺️ Select Your Nearest Branch</p>
+        <p class="branch-prompt">ðŸ—ºï¸ Select Your Nearest Branch</p>
         <div class="branch-detect-row">
           <button id="detect-location-btn" class="btn-detect" onclick="detectLocation()">
-            <span class="icon">📍</span> Auto Detect Location
+            <span class="icon">ðŸ“</span> Auto Detect Location
           </button>
           <span class="or-divider">or</span>
           <span class="manual-label">choose manually</span>
         </div>
         <div class="branch-grid">
           <button class="branch-btn" onclick="selectBranch('tiruchengode')" id="branch-tiruchengode">
-            <span class="branch-icon">🏪</span>
+            <span class="branch-icon">ðŸª</span>
             <span class="branch-name">Tiruchengode</span>
             <span class="branch-tag">Main Branch</span>
           </button>
           <button class="branch-btn" onclick="selectBranch('sankagiri')" id="branch-sankagiri">
-            <span class="branch-icon">🏪</span>
+            <span class="branch-icon">ðŸª</span>
             <span class="branch-name">Sankagiri</span>
             <span class="branch-tag">Branch</span>
           </button>
           <button class="branch-btn" onclick="selectBranch('kootapalli')" id="branch-kootapalli">
-            <span class="branch-icon">🏪</span>
+            <span class="branch-icon">ðŸª</span>
             <span class="branch-name">Kootapalli</span>
             <span class="branch-tag">Branch</span>
           </button>
@@ -65,16 +75,16 @@
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html" class="nav-link active">Home</a></li>
         <li><a href="menu.html" class="nav-link">Menu</a></li>
-        <li><a href="order.html" class="nav-link" style="color:var(--gold);font-weight:700;">🛒 Order</a></li>
+        <li><a href="order.html" class="nav-link" style="color:var(--gold);font-weight:700;">ðŸ›’ Order</a></li>
         <li><a href="branches.html" class="nav-link">Branches</a></li>
         <li><a href="index.html#about" class="nav-link">About</a></li>
         <li><a href="index.html#contact" class="nav-link">Contact</a></li>
       </ul>
       <div class="nav-actions">
         <div class="branch-indicator" id="nav-branch-indicator" onclick="changeBranch()">
-          <span class="bi-dot">●</span>
+          <span class="bi-dot">â—</span>
           <span id="current-branch-nav">Select Branch</span>
-          <span class="bi-arrow">⌄</span>
+          <span class="bi-arrow">âŒ„</span>
         </div>
         <a href="admin/login.html" class="btn-admin" id="admin-btn">Admin</a>
         <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -95,27 +105,27 @@
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <div class="hero-badge">✦ Freshly Baked Every Day ✦</div>
+      <div class="hero-badge">âœ¦ Freshly Baked Every Day âœ¦</div>
       <div class="hero-logo-wrap">
         <div class="hero-logo-glow"></div>
-        <img src="images/logo.jpg" alt="Ibee Resto Cafe – Indian Bakes" class="hero-logo-main" />
+        <img src="images/logo.jpg" alt="Ibee Resto Cafe â€“ Indian Bakes" class="hero-logo-main" />
       </div>
       <h1 class="hero-title">
         <span class="hero-title-main">Ibee Resto Cafe</span>
         <span class="hero-title-sub">Indian Bakes</span>
       </h1>
-      <p class="hero-desc">From oven to table — authentic Indian bakes, bold flavours & warm vibes.<br/>
-        <span class="hero-branch-tag" id="hero-branch-display">📍 Select a branch to explore menu</span>
+      <p class="hero-desc">From oven to table â€” authentic Indian bakes, bold flavours & warm vibes.<br/>
+        <span class="hero-branch-tag" id="hero-branch-display">ðŸ“ Select a branch to explore menu</span>
       </p>
       <div class="hero-cta">
-        <a href="order.html" class="btn-primary">🛒 Order Now</a>
+        <a href="order.html" class="btn-primary">ðŸ›’ Order Now</a>
         <a href="menu.html" class="btn-outline">View Menu</a>
         <a href="branches.html" class="btn-outline">Our Branches</a>
       </div>
     </div>
     <div class="hero-scroll-hint">
       <span>Scroll to discover</span>
-      <div class="scroll-arrow">↓</div>
+      <div class="scroll-arrow">â†“</div>
     </div>
     <div class="hero-slide-dots" id="hero-dots"></div>
   </section>
@@ -138,7 +148,7 @@
     </div>
     <div class="feat-divider">|</div>
     <div class="feature-item">
-      <span class="feat-emoji">🌟</span>
+      <span class="feat-emoji">ðŸŒŸ</span>
       <span>100% Veg & Non-Veg</span>
     </div>
     <div class="feat-divider">|</div>
@@ -154,18 +164,18 @@
       <div class="about-images">
         <img src="images/cafe_exterior4.jpg" alt="Ibee Cafe Kootapalli" class="about-img-main" />
         <img src="images/cafe_exterior5.jpg" alt="Ibee Cafe Kootapalli" class="about-img-float" />
-        <div class="about-branch-tag">📍 Kootapalli Branch</div>
+        <div class="about-branch-tag">ðŸ“ Kootapalli Branch</div>
       </div>
       <div class="about-content">
         <p class="section-eyebrow">Our Story</p>
         <h2 class="section-title">Baked With <em>Love & Tradition</em></h2>
         <p class="about-text">
-          Ibee Resto Cafe started with one simple dream — to bring freshly baked Indian delicacies to every doorstep. 
+          Ibee Resto Cafe started with one simple dream â€” to bring freshly baked Indian delicacies to every doorstep. 
           We blend traditional Indian baking techniques with modern cafe vibes, creating a unique experience you won't find anywhere else.
         </p>
         <p class="about-text">
           From our signature breads to indulgent pastries, every item is prepared fresh daily. 
-          With branches across Tiruchengode, Sankagiri, and Kootapalli — we're always near you!
+          With branches across Tiruchengode, Sankagiri, and Kootapalli â€” we're always near you!
         </p>
         <div class="about-stats">
           <div class="stat-item">
@@ -193,11 +203,11 @@
     <div class="container">
       <div class="section-header">
         <p class="section-eyebrow">What Customers Say</p>
-        <h2 class="section-title">Loved By Many ❤️</h2>
+        <h2 class="section-title">Loved By Many â¤ï¸</h2>
       </div>
       <div class="reviews-grid">
         <div class="review-card">
-          <div class="review-stars">★★★★★</div>
+          <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
           <p class="review-text">"Best bakes in Tiruchengode! The bread is so fresh and the croissants are amazing. I come here every weekend!"</p>
           <div class="reviewer">
             <img src="images/customer_review1.jpg" alt="Reviewer" class="reviewer-img" />
@@ -208,7 +218,7 @@
           </div>
         </div>
         <div class="review-card featured">
-          <div class="review-stars">★★★★★</div>
+          <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
           <p class="review-text">"The loaded fries and tower juice combo is unbeatable! Great ambiance, friendly staff. Highly recommended for families!"</p>
           <div class="reviewer">
             <img src="images/customer_review2.jpg" alt="Reviewer" class="reviewer-img" />
@@ -219,7 +229,7 @@
           </div>
         </div>
         <div class="review-card">
-          <div class="review-stars">★★★★★</div>
+          <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
           <p class="review-text">"Momos here are simply outstanding! Fresh, hot and perfectly spiced. The Kootapalli branch is so convenient for us."</p>
           <div class="reviewer">
             <img src="images/customer_review3.jpg" alt="Reviewer" class="reviewer-img" />
@@ -230,8 +240,8 @@
           </div>
         </div>
         <div class="review-card">
-          <div class="review-stars">★★★★☆</div>
-          <p class="review-text">"Their celebration cakes are gorgeous and taste incredible. Ordered for my daughter's birthday — everyone loved it!"</p>
+          <div class="review-stars">â˜…â˜…â˜…â˜…â˜†</div>
+          <p class="review-text">"Their celebration cakes are gorgeous and taste incredible. Ordered for my daughter's birthday â€” everyone loved it!"</p>
           <div class="reviewer">
             <img src="images/customer_review4.jpg" alt="Reviewer" class="reviewer-img" />
             <div>
@@ -241,7 +251,7 @@
           </div>
         </div>
         <div class="review-card">
-          <div class="review-stars">★★★★★</div>
+          <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
           <p class="review-text">"Paneer loaded fries is my all-time favourite! The cafe has such a warm vibe. Best hangout spot in town!"</p>
           <div class="reviewer">
             <img src="images/customer_review5.jpg" alt="Reviewer" class="reviewer-img" />
@@ -252,7 +262,7 @@
           </div>
         </div>
         <div class="review-card">
-          <div class="review-stars">★★★★★</div>
+          <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
           <p class="review-text">"White sauce pasta is absolutely divine! Quick service, great portions. Will definitely visit again and again!"</p>
           <div class="reviewer">
             <img src="images/customer_review6.jpg" alt="Reviewer" class="reviewer-img" />
@@ -296,34 +306,34 @@
       <div class="contact-grid">
         <!-- Delivery Banner -->
         <div style="grid-column:1/-1;background:linear-gradient(135deg,rgba(212,168,67,0.12),rgba(44,26,14,0.8));border:1px solid rgba(212,168,67,0.3);border-radius:24px;padding:32px;text-align:center;margin-bottom:8px;">
-          <h3 style="font-family:var(--font-display);font-size:1.5rem;color:var(--cream);margin-bottom:6px;">🚀 Order Online — Delivered to Your Door!</h3>
+          <h3 style="font-family:var(--font-display);font-size:1.5rem;color:var(--cream);margin-bottom:6px;">ðŸš€ Order Online â€” Delivered to Your Door!</h3>
           <p style="color:var(--text-muted);margin-bottom:20px;">Free Delivery within 7 Kms &amp; Online Delivery Available</p>
           <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;">
-            <div style="background:white;border-radius:10px;padding:8px 20px;font-weight:800;color:#fc8019;font-size:0.95rem;">🛵 Swiggy</div>
-            <div style="background:white;border-radius:10px;padding:8px 20px;font-weight:800;color:#e23744;font-size:0.95rem;">🍽️ Zomato</div>
-            <div style="background:white;border-radius:10px;padding:8px 20px;font-weight:800;color:#1a73e8;font-size:0.95rem;">📦 Zaaroz</div>
+            <div style="background:white;border-radius:10px;padding:8px 20px;font-weight:800;color:#fc8019;font-size:0.95rem;">ðŸ›µ Swiggy</div>
+            <div style="background:white;border-radius:10px;padding:8px 20px;font-weight:800;color:#e23744;font-size:0.95rem;">ðŸ½ï¸ Zomato</div>
+            <div style="background:white;border-radius:10px;padding:8px 20px;font-weight:800;color:#1a73e8;font-size:0.95rem;">ðŸ“¦ Zaaroz</div>
           </div>
         </div>
         <div class="contact-card">
-          <div class="contact-icon">🏪</div>
+          <div class="contact-icon">ðŸª</div>
           <h3>Tiruchengode</h3>
           <p>Main Branch<br/>Tiruchengode, Namakkal Dist.<br/>Tamil Nadu</p>
-          <a href="tel:+918438183898" class="contact-link">📞 +91 84381 83898</a>
+          <a href="tel:+918438183898" class="contact-link">ðŸ“ž +91 84381 83898</a>
         </div>
         <div class="contact-card">
-          <div class="contact-icon">🏪</div>
+          <div class="contact-icon">ðŸª</div>
           <h3>Sankagiri</h3>
           <p>Salem District<br/>Sankagiri, Tamil Nadu</p>
-          <a href="tel:+918489983898" class="contact-link">📞 +91 84899 83898</a>
+          <a href="tel:+918489983898" class="contact-link">ðŸ“ž +91 84899 83898</a>
         </div>
         <div class="contact-card">
-          <div class="contact-icon">🏪</div>
+          <div class="contact-icon">ðŸª</div>
           <h3>Kootapalli</h3>
           <p>Kootapalli<br/>Tamil Nadu</p>
-          <a href="tel:+918438183898" class="contact-link">📞 Contact Us</a>
+          <a href="tel:+918438183898" class="contact-link">ðŸ“ž Contact Us</a>
         </div>
         <div class="contact-card contact-hours">
-          <div class="contact-icon">🕐</div>
+          <div class="contact-icon">ðŸ•</div>
           <h3>Opening Hours</h3>
           <img src="images/timing.jpg" alt="Opening hours" class="timing-img" />
           <p>Open all 7 days a week<br/>Morning to Evening</p>
@@ -332,7 +342,64 @@
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- ===== FOOTER ===== -->  <!-- CUSTOMER REVIEW FORM -->
+  <section class="section" id="leave-review" style="background:rgba(212,168,67,0.04);border-top:1px solid rgba(212,168,67,0.1);">
+    <div class="container" style="max-width:600px;">
+      <div class="section-header">
+        <p class="section-eyebrow">Share Your Experience</p>
+        <h2 class="section-title">Leave a Review ⭐</h2>
+      </div>
+      <div style="background:var(--dark-card);border:1px solid rgba(212,168,67,0.2);border-radius:20px;padding:28px;">
+        <div style="margin-bottom:16px;">
+          <label style="display:block;color:var(--text-muted);font-size:0.8rem;font-weight:600;margin-bottom:8px;">YOUR NAME</label>
+          <input type="text" id="rv-name" placeholder="Enter your name" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 16px;color:var(--cream);font-size:0.9rem;font-family:Outfit,sans-serif;box-sizing:border-box;" />
+        </div>
+        <div style="margin-bottom:16px;">
+          <label style="display:block;color:var(--text-muted);font-size:0.8rem;font-weight:600;margin-bottom:8px;">RATING</label>
+          <div id="rv-stars" style="display:flex;gap:8px;font-size:2rem;cursor:pointer;">
+            <span data-star="1" onclick="setRating(1)">☆</span>
+            <span data-star="2" onclick="setRating(2)">☆</span>
+            <span data-star="3" onclick="setRating(3)">☆</span>
+            <span data-star="4" onclick="setRating(4)">☆</span>
+            <span data-star="5" onclick="setRating(5)">☆</span>
+          </div>
+        </div>
+        <div style="margin-bottom:20px;">
+          <label style="display:block;color:var(--text-muted);font-size:0.8rem;font-weight:600;margin-bottom:8px;">YOUR REVIEW</label>
+          <textarea id="rv-text" placeholder="Tell us about your experience at Ibee Resto Cafe..." style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 16px;color:var(--cream);font-size:0.9rem;font-family:Outfit,sans-serif;resize:vertical;min-height:90px;box-sizing:border-box;"></textarea>
+        </div>
+        <button onclick="submitReview()" style="width:100%;background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--dark);border:none;border-radius:30px;padding:14px;font-size:1rem;font-weight:800;cursor:pointer;font-family:Outfit,sans-serif;">Submit Review ⭐</button>
+        <div id="rv-success" style="display:none;text-align:center;padding:16px;color:#27ae60;font-weight:600;font-size:0.95rem;margin-top:12px;">🎉 Thank you for your review!</div>
+      </div>
+    </div>
+  </section>
+  <script>
+    var rvRating = 0;
+    function setRating(n){
+      rvRating=n;
+      document.querySelectorAll('#rv-stars span').forEach(function(s,i){
+        s.textContent = i<n ? '★' : '☆';
+        s.style.color = i<n ? '#D4A843' : 'var(--text-muted)';
+      });
+    }
+    function submitReview(){
+      var name=document.getElementById('rv-name').value.trim();
+      var text=document.getElementById('rv-text').value.trim();
+      if(!name){alert('Please enter your name!');return;}
+      if(!rvRating){alert('Please select a rating!');return;}
+      if(!text){alert('Please write your review!');return;}
+      var reviews=JSON.parse(localStorage.getItem('ibee_reviews')||'[]');
+      reviews.unshift({name:name,rating:rvRating,text:text,time:new Date().toLocaleDateString('en-IN')});
+      localStorage.setItem('ibee_reviews',JSON.stringify(reviews.slice(0,50)));
+      document.getElementById('rv-success').style.display='block';
+      document.getElementById('rv-name').value='';
+      document.getElementById('rv-text').value='';
+      setRating(0);
+      setTimeout(function(){document.getElementById('rv-success').style.display='none';},3000);
+    }
+  </script>
+
+
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -342,8 +409,8 @@
           <p class="footer-tagline">Indian Bakes</p>
           <p class="footer-desc">Freshly baked goodness, served with warmth. Your neighbourhood cafe across Tamil Nadu.</p>
           <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px;">
-            <a href="mailto:ibeeresto@gmail.com" style="color:var(--text-muted);font-size:0.85rem;transition:color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">✉️ ibeeresto@gmail.com</a>
-            <a href="https://instagram.com/ibee_restro_cafe" target="_blank" rel="noopener" style="color:var(--text-muted);font-size:0.85rem;transition:color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">📸 @ibee_restro_cafe</a>
+            <a href="mailto:ibeeresto@gmail.com" style="color:var(--text-muted);font-size:0.85rem;transition:color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">âœ‰ï¸ ibeeresto@gmail.com</a>
+            <a href="https://instagram.com/ibee_restro_cafe" target="_blank" rel="noopener" style="color:var(--text-muted);font-size:0.85rem;transition:color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">ðŸ“¸ @ibee_restro_cafe</a>
           </div>
         </div>
         <div class="footer-links-col">
@@ -373,8 +440,8 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2024 Ibee Resto Cafe – Indian Bakes. All Rights Reserved.</p>
-        <p>Made with ❤️ for great food lovers</p>
+        <p>Â© 2024 Ibee Resto Cafe â€“ Indian Bakes. All Rights Reserved.</p>
+        <p>Made with â¤ï¸ for great food lovers</p>
       </div>
     </div>
   </footer>

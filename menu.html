@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Menu – Ibee Resto Cafe | Indian Bakes</title>
-  <meta name="description" content="Explore the full menu of Ibee Resto Cafe – Indian Bakes. Momos, Loaded Fries, Wraps, Juices, Desserts, Falooda and more with prices!" />
+  <title>Menu â€“ Ibee Resto Cafe | Indian Bakes</title>
+  <meta name="description" content="Explore the full menu of Ibee Resto Cafe â€“ Indian Bakes. Momos, Loaded Fries, Wraps, Juices, Desserts, Falooda and more with prices!" />
   <link rel="icon" href="images/logo.jpg" type="image/jpeg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -118,6 +118,7 @@
       border-radius: var(--radius-pill); margin-bottom: 20px;
     }
     .section-divider { height: 1px; background: rgba(212,168,67,0.1); margin: 48px 0; }
+  <style>@media print{.navbar,.menu-sticky-tabs,.hero,.features-strip,.footer,button,.btn-primary,.btn-outline,.wa-float,.wa-ring,.wa-tip{display:none!important}.menu-item-card{break-inside:avoid}.card-img-wrap{height:80px!important}body{background:white!important;color:#000!important}.item-name,.item-note{color:#000!important}.item-price-bar{background:#D4A843!important}}</style>
   </style>
 </head>
 <body>
@@ -141,9 +142,9 @@
       </ul>
       <div class="nav-actions">
         <div class="branch-indicator" id="nav-branch-indicator" onclick="changeBranch()">
-          <span class="bi-dot">●</span>
+          <span class="bi-dot">â—</span>
           <span id="current-branch-nav">Select Branch</span>
-          <span class="bi-arrow">⌄</span>
+          <span class="bi-arrow">âŒ„</span>
         </div>
         <a href="admin/login.html" class="btn-admin">Admin</a>
         <button class="hamburger" id="hamburger" onclick="toggleMenu()">
@@ -162,27 +163,27 @@
         <p class="branch-subtitle">Indian Bakes</p>
       </div>
       <div class="branch-card">
-        <p class="branch-prompt">🗺️ Select Your Nearest Branch</p>
+        <p class="branch-prompt">ðŸ—ºï¸ Select Your Nearest Branch</p>
         <div class="branch-detect-row">
           <button id="detect-location-btn" class="btn-detect" onclick="detectLocation()">
-            <span class="icon">📍</span> Auto Detect Location
+            <span class="icon">ðŸ“</span> Auto Detect Location
           </button>
           <span class="or-divider">or</span>
           <span class="manual-label">choose manually</span>
         </div>
         <div class="branch-grid">
           <button class="branch-btn" onclick="selectBranch('tiruchengode')" id="branch-tiruchengode">
-            <span class="branch-icon">🏪</span>
+            <span class="branch-icon">ðŸª</span>
             <span class="branch-name">Tiruchengode</span>
             <span class="branch-tag">Main Branch</span>
           </button>
           <button class="branch-btn" onclick="selectBranch('sankagiri')" id="branch-sankagiri">
-            <span class="branch-icon">🏪</span>
+            <span class="branch-icon">ðŸª</span>
             <span class="branch-name">Sankagiri</span>
             <span class="branch-tag">Branch</span>
           </button>
           <button class="branch-btn" onclick="selectBranch('kootapalli')" id="branch-kootapalli">
-            <span class="branch-icon">🏪</span>
+            <span class="branch-icon">ðŸª</span>
             <span class="branch-name">Kootapalli</span>
             <span class="branch-tag">Branch</span>
           </button>
@@ -197,27 +198,28 @@
     <div class="page-hero-content">
       <p class="section-eyebrow">Explore</p>
       <h1 class="page-hero-title">Our Full Menu</h1>
-      <p class="page-hero-desc">Fresh, flavourful & made with love — every single day.</p>
+      <p class="page-hero-desc">Fresh, flavourful & made with love â€” every single day.</p>
     </div>
   </div>
 
   <!-- STICKY CATEGORY TABS -->
+  <div style='text-align:right;padding:12px 24px 0;'><button onclick="window.print()" style="background:linear-gradient(135deg,#7B2D00,#D4A843);color:white;border:none;border-radius:30px;padding:10px 24px;font-weight:700;font-size:0.88rem;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:Outfit,sans-serif;">🖨️ Download Menu</button></div>
   <div class="menu-sticky-tabs">
     <div class="tab-scroll">
-      <button class="sticky-tab-btn active" onclick="scrollToSection('sec-momos', this)">🥟 Momos</button>
-      <button class="sticky-tab-btn" onclick="scrollToSection('sec-fried', this)">🍗 Ibee Fried</button>
-      <button class="sticky-tab-btn" onclick="scrollToSection('sec-burgers', this)">🍔 Burgers</button>
-      <button class="sticky-tab-btn" onclick="scrollToSection('sec-sandwich', this)">🥪 Sandwich</button>
-      <button class="sticky-tab-btn" onclick="scrollToSection('sec-wraps', this)">🌯 Wraps</button>
-      <button class="sticky-tab-btn" onclick="scrollToSection('sec-fries', this)">🍟 Loaded Fries</button>
-      <button class="sticky-tab-btn" onclick="scrollToSection('sec-pasta', this)">🍝 Pasta & Salad</button>
-      <button class="sticky-tab-btn" onclick="scrollToSection('sec-mojito', this)">🥤 Mojito</button>
-      <button class="sticky-tab-btn" onclick="scrollToSection('sec-shakes', this)">🍦 Shakes</button>
-      <button class="sticky-tab-btn" onclick="scrollToSection('sec-chilled', this)">❄️ Chilled</button>
-      <button class="sticky-tab-btn" onclick="scrollToSection('sec-juices', this)">🍹 Juices</button>
-      <button class="sticky-tab-btn" onclick="scrollToSection('sec-desserts', this)">🍮 Desserts</button>
-      <button class="sticky-tab-btn" onclick="scrollToSection('sec-falooda', this)">🍧 Falooda</button>
-      <button class="sticky-tab-btn" onclick="scrollToSection('sec-signature', this)">⭐ Signature</button>
+      <button class="sticky-tab-btn active" onclick="scrollToSection('sec-momos', this)">ðŸ¥Ÿ Momos</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-fried', this)">ðŸ— Ibee Fried</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-burgers', this)">ðŸ” Burgers</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-sandwich', this)">ðŸ¥ª Sandwich</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-wraps', this)">ðŸŒ¯ Wraps</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-fries', this)">ðŸŸ Loaded Fries</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-pasta', this)">ðŸ Pasta & Salad</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-mojito', this)">ðŸ¥¤ Mojito</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-shakes', this)">ðŸ¦ Shakes</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-chilled', this)">â„ï¸ Chilled</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-juices', this)">ðŸ¹ Juices</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-desserts', this)">ðŸ® Desserts</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-falooda', this)">ðŸ§ Falooda</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-signature', this)">â­ Signature</button>
     </div>
   </div>
 
@@ -227,7 +229,7 @@
 
       <!-- Branch Notice -->
       <div class="branch-notice" id="branch-notice-bar" style="margin-bottom:40px;">
-        <div class="branch-notice-icon">📍</div>
+        <div class="branch-notice-icon">ðŸ“</div>
         <div class="branch-notice-text">
           <strong id="branch-notice-name">No branch selected</strong>
           <span>Menu availability may vary by branch. Items marked unavailable are out of stock at your branch.</span>
@@ -238,58 +240,58 @@
       <!-- ======================== MOMOS ======================== -->
       <div id="sec-momos" class="menu-section-block">
         <div class="cat-header">
-          <span class="cat-emoji">🥟</span>
+          <span class="cat-emoji">ðŸ¥Ÿ</span>
           <h2 class="cat-title">Momos</h2>
           <span class="cat-count">9 items</span>
         </div>
-        <div class="prep-note">⏱️ Food preparation 10–15 mins</div>
+        <div class="prep-note">â±ï¸ Food preparation 10â€“15 mins</div>
         <div class="menu-card-grid">
           <div class="menu-item-card" data-item="momos">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Steamed Momos</div>
-            <div class="item-price-bar">₹79 / ₹89</div>
+            <div class="item-price-bar">â‚¹79 / â‚¹89</div>
           </div>
           <div class="menu-item-card" data-item="momos">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Fried KFC</div>
-            <div class="item-price-bar">₹99 / ₹109</div>
+            <div class="item-price-bar">â‚¹99 / â‚¹109</div>
           </div>
           <div class="menu-item-card" data-item="momos">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Peri Peri Steamed</div>
-            <div class="item-price-bar">₹89 / ₹99</div>
+            <div class="item-price-bar">â‚¹89 / â‚¹99</div>
           </div>
           <div class="menu-item-card" data-item="momos">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Dynamite Steamed</div>
-            <div class="item-price-bar">₹99 / ₹109</div>
+            <div class="item-price-bar">â‚¹99 / â‚¹109</div>
           </div>
           <div class="menu-item-card" data-item="momos">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Lemon Pepper Steamed</div>
-            <div class="item-price-bar">₹89 / ₹99</div>
+            <div class="item-price-bar">â‚¹89 / â‚¹99</div>
           </div>
           <div class="menu-item-card" data-item="momos">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Afghani Steamed Momos</div>
-            <div class="item-price-bar">₹99 / ₹109</div>
+            <div class="item-price-bar">â‚¹99 / â‚¹109</div>
           </div>
           <div class="menu-item-card" data-item="momos">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Lemon Pepper Fried</div>
-            <div class="item-price-bar">₹99 / ₹109</div>
+            <div class="item-price-bar">â‚¹99 / â‚¹109</div>
           </div>
           <div class="menu-item-card" data-item="momos">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Momo Combo</div>
             <div class="item-note">8 Pcs: 2 Fried, 2 Peri Peri, 2 Dynamite, 2 Lemon</div>
-            <div class="item-price-bar">₹139 / ₹149</div>
+            <div class="item-price-bar">â‚¹139 / â‚¹149</div>
           </div>
           <div class="menu-item-card" data-item="momos">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Momo Platter</div>
             <div class="item-note">12 Pcs Momos and Fries</div>
-            <div class="item-price-bar">₹209 / ₹219</div>
+            <div class="item-price-bar">â‚¹209 / â‚¹219</div>
           </div>
         </div>
         <p style="font-size:0.75rem;color:var(--text-muted);margin-bottom:8px;">* Price: Veg / Non-Veg</p>
@@ -300,51 +302,51 @@
       <!-- ======================== IBEE FRIED ======================== -->
       <div id="sec-fried" class="menu-section-block">
         <div class="cat-header">
-          <span class="cat-emoji">🍗</span>
+          <span class="cat-emoji">ðŸ—</span>
           <h2 class="cat-title">Ibee Fried</h2>
           <span class="cat-count">8 items</span>
         </div>
-        <div class="prep-note">⏱️ Food preparation 10–15 mins</div>
+        <div class="prep-note">â±ï¸ Food preparation 10â€“15 mins</div>
         <div class="menu-card-grid">
           <div class="menu-item-card" data-item="strips">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Pop Chicken</div>
-            <div class="item-price-bar">₹99</div>
+            <div class="item-price-bar">â‚¹99</div>
           </div>
           <div class="menu-item-card" data-item="strips">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Peri Peri Pops</div>
-            <div class="item-price-bar">₹109</div>
+            <div class="item-price-bar">â‚¹109</div>
           </div>
           <div class="menu-item-card" data-item="strips">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Dynamic Pops</div>
-            <div class="item-price-bar">₹119</div>
+            <div class="item-price-bar">â‚¹119</div>
           </div>
           <div class="menu-item-card" data-item="strips">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Normal Strips (4 Pcs)</div>
-            <div class="item-price-bar">₹129</div>
+            <div class="item-price-bar">â‚¹129</div>
           </div>
           <div class="menu-item-card" data-item="strips">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Peri Peri Strips (4 Pcs)</div>
-            <div class="item-price-bar">₹149</div>
+            <div class="item-price-bar">â‚¹149</div>
           </div>
           <div class="menu-item-card" data-item="strips">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Lemon Pepper Strips (4 Pcs)</div>
-            <div class="item-price-bar">₹159</div>
+            <div class="item-price-bar">â‚¹159</div>
           </div>
           <div class="menu-item-card" data-item="strips">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Wings (5 Pcs)</div>
-            <div class="item-price-bar">₹169</div>
+            <div class="item-price-bar">â‚¹169</div>
           </div>
           <div class="menu-item-card" data-item="strips">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Lolly Pop (5 Pcs)</div>
-            <div class="item-price-bar">₹189</div>
+            <div class="item-price-bar">â‚¹189</div>
           </div>
         </div>
       </div>
@@ -354,51 +356,51 @@
       <!-- ======================== WRAP ROLLS & QUESADILLA ======================== -->
       <div id="sec-wraps" class="menu-section-block">
         <div class="cat-header">
-          <span class="cat-emoji">🌯</span>
+          <span class="cat-emoji">ðŸŒ¯</span>
           <h2 class="cat-title">Wrap Rolls & Quesadilla</h2>
           <span class="cat-count">8 items</span>
         </div>
-        <div class="prep-note">⏱️ Food preparation 10–15 mins</div>
+        <div class="prep-note">â±ï¸ Food preparation 10â€“15 mins</div>
         <div class="menu-card-grid">
           <div class="menu-item-card" data-item="wraps">
-            <span class="item-badge veg-badge">🟢 Veg</span>
+            <span class="item-badge veg-badge">ðŸŸ¢ Veg</span>
             <div class="item-name">Veg Cheese Wrap</div>
-            <div class="item-price-bar">₹99</div>
+            <div class="item-price-bar">â‚¹99</div>
           </div>
           <div class="menu-item-card" data-item="wraps">
-            <span class="item-badge veg-badge">🟢 Veg</span>
+            <span class="item-badge veg-badge">ðŸŸ¢ Veg</span>
             <div class="item-name">Grilled Mushroom Cream Wrap</div>
-            <div class="item-price-bar">₹119</div>
+            <div class="item-price-bar">â‚¹119</div>
           </div>
           <div class="menu-item-card" data-item="wraps">
-            <span class="item-badge veg-badge">🟢 Veg</span>
+            <span class="item-badge veg-badge">ðŸŸ¢ Veg</span>
             <div class="item-name">Creamy Paneer Wrap</div>
-            <div class="item-price-bar">₹119</div>
+            <div class="item-price-bar">â‚¹119</div>
           </div>
           <div class="menu-item-card" data-item="wraps">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Zinger Spider Wrap</div>
-            <div class="item-price-bar">₹99</div>
+            <div class="item-price-bar">â‚¹99</div>
           </div>
           <div class="menu-item-card" data-item="wraps">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Malaysian Roll</div>
-            <div class="item-price-bar">₹129</div>
+            <div class="item-price-bar">â‚¹129</div>
           </div>
           <div class="menu-item-card" data-item="wraps">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Italian Chicken Wrap</div>
-            <div class="item-price-bar">₹149</div>
+            <div class="item-price-bar">â‚¹149</div>
           </div>
           <div class="menu-item-card" data-item="wraps">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Mariya</div>
-            <div class="item-price-bar">₹149</div>
+            <div class="item-price-bar">â‚¹149</div>
           </div>
           <div class="menu-item-card" data-item="wraps">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Steak Quesadilla</div>
-            <div class="item-price-bar">₹139</div>
+            <div class="item-price-bar">â‚¹139</div>
           </div>
         </div>
       </div>
@@ -408,36 +410,36 @@
       <!-- ======================== LOADED FRIES ======================== -->
       <div id="sec-fries" class="menu-section-block">
         <div class="cat-header">
-          <span class="cat-emoji">🍟</span>
+          <span class="cat-emoji">ðŸŸ</span>
           <h2 class="cat-title">Loaded Fries</h2>
           <span class="cat-count">5 items</span>
         </div>
-        <div class="prep-note">⏱️ Food preparation 10–15 mins</div>
+        <div class="prep-note">â±ï¸ Food preparation 10â€“15 mins</div>
         <div class="menu-card-grid">
           <div class="menu-item-card" data-item="fries">
-            <span class="item-badge veg-badge">🟢 Veg</span>
+            <span class="item-badge veg-badge">ðŸŸ¢ Veg</span>
             <div class="item-name">Classic Loaded Fries</div>
-            <div class="item-price-bar">₹159</div>
+            <div class="item-price-bar">â‚¹159</div>
           </div>
           <div class="menu-item-card" data-item="fries">
-            <span class="item-badge veg-badge">🟢 Veg</span>
+            <span class="item-badge veg-badge">ðŸŸ¢ Veg</span>
             <div class="item-name">Peri Peri Loaded Fries</div>
-            <div class="item-price-bar">₹169</div>
+            <div class="item-price-bar">â‚¹169</div>
           </div>
           <div class="menu-item-card" data-item="pannerfries">
-            <span class="item-badge veg-badge">🟢 Veg</span>
+            <span class="item-badge veg-badge">ðŸŸ¢ Veg</span>
             <div class="item-name">Grilled Paneer Loaded Fries</div>
-            <div class="item-price-bar">₹180</div>
+            <div class="item-price-bar">â‚¹180</div>
           </div>
           <div class="menu-item-card" data-item="fries">
-            <span class="item-badge veg-badge">🟢 Veg</span>
+            <span class="item-badge veg-badge">ðŸŸ¢ Veg</span>
             <div class="item-name">Walking Nachos Veg</div>
-            <div class="item-price-bar">₹129</div>
+            <div class="item-price-bar">â‚¹129</div>
           </div>
           <div class="menu-item-card" data-item="fries">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Walking Nachos Chicken</div>
-            <div class="item-price-bar">₹139</div>
+            <div class="item-price-bar">â‚¹139</div>
           </div>
         </div>
       </div>
@@ -447,36 +449,36 @@
       <!-- ======================== PASTA & SALAD ======================== -->
       <div id="sec-pasta" class="menu-section-block">
         <div class="cat-header">
-          <span class="cat-emoji">🍝</span>
+          <span class="cat-emoji">ðŸ</span>
           <h2 class="cat-title">Pasta & Salad</h2>
           <span class="cat-count">5 items</span>
         </div>
-        <div class="prep-note">⏱️ Food preparation 10–15 mins</div>
+        <div class="prep-note">â±ï¸ Food preparation 10â€“15 mins</div>
         <div class="menu-card-grid">
           <div class="menu-item-card" data-item="pasta">
-            <span class="item-badge veg-badge">🟢 Veg</span>
+            <span class="item-badge veg-badge">ðŸŸ¢ Veg</span>
             <div class="item-name">Creamy Malai White Pasta</div>
-            <div class="item-price-bar">₹169 / ₹179</div>
+            <div class="item-price-bar">â‚¹169 / â‚¹179</div>
           </div>
           <div class="menu-item-card" data-item="pasta">
-            <span class="item-badge veg-badge">🟢 Veg</span>
+            <span class="item-badge veg-badge">ðŸŸ¢ Veg</span>
             <div class="item-name">Red Sauce Pasta</div>
-            <div class="item-price-bar">₹169 / ₹190</div>
+            <div class="item-price-bar">â‚¹169 / â‚¹190</div>
           </div>
           <div class="menu-item-card" data-item="pasta">
-            <span class="item-badge veg-badge">🟢 Veg</span>
+            <span class="item-badge veg-badge">ðŸŸ¢ Veg</span>
             <div class="item-name">Green Salad Veg</div>
-            <div class="item-price-bar">₹90</div>
+            <div class="item-price-bar">â‚¹90</div>
           </div>
           <div class="menu-item-card" data-item="pasta">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Fried Chicken Salad</div>
-            <div class="item-price-bar">₹129</div>
+            <div class="item-price-bar">â‚¹129</div>
           </div>
           <div class="menu-item-card" data-item="pasta">
-            <span class="item-badge veg-badge">🟢 Veg</span>
+            <span class="item-badge veg-badge">ðŸŸ¢ Veg</span>
             <div class="item-name">Cut Fruit Salad</div>
-            <div class="item-price-bar">₹89</div>
+            <div class="item-price-bar">â‚¹89</div>
           </div>
         </div>
         <p style="font-size:0.75rem;color:var(--text-muted);">* Pasta price: Small / Large</p>
@@ -487,21 +489,21 @@
       <!-- ======================== POP MOJITO ======================== -->
       <div id="sec-mojito" class="menu-section-block">
         <div class="cat-header">
-          <span class="cat-emoji">🥤</span>
+          <span class="cat-emoji">ðŸ¥¤</span>
           <h2 class="cat-title">Pop Mojito</h2>
           <span class="cat-count">10 items</span>
         </div>
         <div class="menu-list-grid">
-          <div class="menu-list-item"><span class="menu-list-name">Blue Refresh</span><span class="menu-list-price">₹80</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Mint Mojito</span><span class="menu-list-price">₹90</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Pink Punisher</span><span class="menu-list-price">₹90</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Spicy Orange Mojito</span><span class="menu-list-price">₹99</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Green Apple Mojito</span><span class="menu-list-price">₹99</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Ice Spice Mojito</span><span class="menu-list-price">₹99</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Royal Passion</span><span class="menu-list-price">₹109</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Pineapple Soda</span><span class="menu-list-price">₹49</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Grape Soda</span><span class="menu-list-price">₹49</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Lemon Soda</span><span class="menu-list-price">₹30</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Blue Refresh</span><span class="menu-list-price">â‚¹80</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Mint Mojito</span><span class="menu-list-price">â‚¹90</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Pink Punisher</span><span class="menu-list-price">â‚¹90</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Spicy Orange Mojito</span><span class="menu-list-price">â‚¹99</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Green Apple Mojito</span><span class="menu-list-price">â‚¹99</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Ice Spice Mojito</span><span class="menu-list-price">â‚¹99</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Royal Passion</span><span class="menu-list-price">â‚¹109</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Pineapple Soda</span><span class="menu-list-price">â‚¹49</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Grape Soda</span><span class="menu-list-price">â‚¹49</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Lemon Soda</span><span class="menu-list-price">â‚¹30</span></div>
         </div>
       </div>
 
@@ -510,22 +512,22 @@
       <!-- ======================== ICE CREAM SHAKES ======================== -->
       <div id="sec-shakes" class="menu-section-block">
         <div class="cat-header">
-          <span class="cat-emoji">🍦</span>
+          <span class="cat-emoji">ðŸ¦</span>
           <h2 class="cat-title">Snazzy Ice Cream Shakes</h2>
           <span class="cat-count">11 items</span>
         </div>
         <div class="menu-list-grid">
-          <div class="menu-list-item"><span class="menu-list-name">Pink & Pink</span><span class="menu-list-price">₹90</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Vanilla</span><span class="menu-list-price">₹90</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Green Channel</span><span class="menu-list-price">₹99</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Tangy Mango</span><span class="menu-list-price">₹99</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Chocolate Sharja</span><span class="menu-list-price">₹99</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Sweety Jackfruit</span><span class="menu-list-price">₹99</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Choco Lover</span><span class="menu-list-price">₹109</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Oreo Shake</span><span class="menu-list-price">₹109</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Kitkat Lover</span><span class="menu-list-price">₹109</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Sithfal</span><span class="menu-list-price">₹109</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Nutella Fantasy</span><span class="menu-list-price">₹140</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Pink & Pink</span><span class="menu-list-price">â‚¹90</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Vanilla</span><span class="menu-list-price">â‚¹90</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Green Channel</span><span class="menu-list-price">â‚¹99</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Tangy Mango</span><span class="menu-list-price">â‚¹99</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Chocolate Sharja</span><span class="menu-list-price">â‚¹99</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Sweety Jackfruit</span><span class="menu-list-price">â‚¹99</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Choco Lover</span><span class="menu-list-price">â‚¹109</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Oreo Shake</span><span class="menu-list-price">â‚¹109</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Kitkat Lover</span><span class="menu-list-price">â‚¹109</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Sithfal</span><span class="menu-list-price">â‚¹109</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Nutella Fantasy</span><span class="menu-list-price">â‚¹140</span></div>
         </div>
       </div>
 
@@ -534,16 +536,16 @@
       <!-- ======================== CHILLED BOY ======================== -->
       <div id="sec-chilled" class="menu-section-block">
         <div class="cat-header">
-          <span class="cat-emoji">❄️</span>
+          <span class="cat-emoji">â„ï¸</span>
           <h2 class="cat-title">Chilled Boy</h2>
           <span class="cat-count">5 items</span>
         </div>
         <div class="menu-list-grid">
-          <div class="menu-list-item"><span class="menu-list-name">Chilled Coffee</span><span class="menu-list-price">₹69</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Chilled Boost</span><span class="menu-list-price">₹59</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Chilled Horlicks</span><span class="menu-list-price">₹59</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Chilled Badam</span><span class="menu-list-price">₹50</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Chilled Rosemilk</span><span class="menu-list-price">₹50</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Chilled Coffee</span><span class="menu-list-price">â‚¹69</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Chilled Boost</span><span class="menu-list-price">â‚¹59</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Chilled Horlicks</span><span class="menu-list-price">â‚¹59</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Chilled Badam</span><span class="menu-list-price">â‚¹50</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Chilled Rosemilk</span><span class="menu-list-price">â‚¹50</span></div>
         </div>
       </div>
 
@@ -552,34 +554,34 @@
       <!-- ======================== JUICES ======================== -->
       <div id="sec-juices" class="menu-section-block">
         <div class="cat-header">
-          <span class="cat-emoji">🍹</span>
+          <span class="cat-emoji">ðŸ¹</span>
           <h2 class="cat-title">Juices</h2>
           <span class="cat-count">17 items</span>
         </div>
 
-        <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--gold);margin-bottom:16px;">🍊 Fresh Juices</h3>
+        <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--gold);margin-bottom:16px;">ðŸŠ Fresh Juices</h3>
         <div class="menu-list-grid" style="margin-bottom:32px;">
-          <div class="menu-list-item"><span class="menu-list-name">Orange Juice</span><span class="menu-list-price">₹60</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Musambi Juice</span><span class="menu-list-price">₹50</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Apple Juice</span><span class="menu-list-price">₹70</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Pomegranate Juice</span><span class="menu-list-price">₹70</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Grape Juice</span><span class="menu-list-price">₹60</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Muskmelon Juice</span><span class="menu-list-price">₹40</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Carrot Juice</span><span class="menu-list-price">₹80</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Pineapple Juice</span><span class="menu-list-price">₹60</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Watermelon Juice</span><span class="menu-list-price">₹50</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Fresh Lemon Juice</span><span class="menu-list-price">₹30</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Mint Lemon Juice</span><span class="menu-list-price">₹40</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Spanish Lemon Juice</span><span class="menu-list-price">₹49</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Orange Juice</span><span class="menu-list-price">â‚¹60</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Musambi Juice</span><span class="menu-list-price">â‚¹50</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Apple Juice</span><span class="menu-list-price">â‚¹70</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Pomegranate Juice</span><span class="menu-list-price">â‚¹70</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Grape Juice</span><span class="menu-list-price">â‚¹60</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Muskmelon Juice</span><span class="menu-list-price">â‚¹40</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Carrot Juice</span><span class="menu-list-price">â‚¹80</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Pineapple Juice</span><span class="menu-list-price">â‚¹60</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Watermelon Juice</span><span class="menu-list-price">â‚¹50</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Fresh Lemon Juice</span><span class="menu-list-price">â‚¹30</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Mint Lemon Juice</span><span class="menu-list-price">â‚¹40</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Spanish Lemon Juice</span><span class="menu-list-price">â‚¹49</span></div>
         </div>
 
-        <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--gold);margin-bottom:16px;">🍊 Pure Juices</h3>
+        <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--gold);margin-bottom:16px;">ðŸŠ Pure Juices</h3>
         <div class="menu-list-grid">
-          <div class="menu-list-item"><span class="menu-list-name">Orange Pure</span><span class="menu-list-price">₹90</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Musambi Pure</span><span class="menu-list-price">₹80</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Apple Pure</span><span class="menu-list-price">₹100</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Pomegranate Pure</span><span class="menu-list-price">₹150</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Pineapple Pure</span><span class="menu-list-price">₹90</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Orange Pure</span><span class="menu-list-price">â‚¹90</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Musambi Pure</span><span class="menu-list-price">â‚¹80</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Apple Pure</span><span class="menu-list-price">â‚¹100</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Pomegranate Pure</span><span class="menu-list-price">â‚¹150</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Pineapple Pure</span><span class="menu-list-price">â‚¹90</span></div>
         </div>
       </div>
 
@@ -588,20 +590,20 @@
       <!-- ======================== DESSERTS ======================== -->
       <div id="sec-desserts" class="menu-section-block">
         <div class="cat-header">
-          <span class="cat-emoji">🍮</span>
+          <span class="cat-emoji">ðŸ®</span>
           <h2 class="cat-title">Desserts</h2>
           <span class="cat-count">6 items</span>
         </div>
         <div class="menu-list-grid">
-          <div class="menu-list-item"><span class="menu-list-name">Brownie with Ice cream</span><span class="menu-list-price">₹139</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Jamun Ice cream</span><span class="menu-list-price">₹79</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Brownie with Ice cream</span><span class="menu-list-price">â‚¹139</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Jamun Ice cream</span><span class="menu-list-price">â‚¹79</span></div>
           <div class="menu-list-item">
             <span class="menu-list-name">Banana Fry and Ice cream<span class="menu-list-desc">Seasonal availability</span></span>
-            <span class="menu-list-price">₹90</span>
+            <span class="menu-list-price">â‚¹90</span>
           </div>
-          <div class="menu-list-item"><span class="menu-list-name">Sizzling Brownie</span><span class="menu-list-price">₹149</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Sizzling Blondie</span><span class="menu-list-price">₹159</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Butter Gulkhand</span><span class="menu-list-price">₹139</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Sizzling Brownie</span><span class="menu-list-price">â‚¹149</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Sizzling Blondie</span><span class="menu-list-price">â‚¹159</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Butter Gulkhand</span><span class="menu-list-price">â‚¹139</span></div>
         </div>
       </div>
 
@@ -610,18 +612,18 @@
       <!-- ======================== FALOODA ======================== -->
       <div id="sec-falooda" class="menu-section-block">
         <div class="cat-header">
-          <span class="cat-emoji">🍧</span>
+          <span class="cat-emoji">ðŸ§</span>
           <h2 class="cat-title">Falooda</h2>
           <span class="cat-count">7 items</span>
         </div>
         <div class="menu-list-grid">
-          <div class="menu-list-item"><span class="menu-list-name">Normal Falooda</span><span class="menu-list-price">₹129</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Rasmalai Falooda</span><span class="menu-list-price">₹159</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Dry Fruit Falooda</span><span class="menu-list-price">₹169</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Ibee Special Falooda</span><span class="menu-list-price">₹189</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Classic Salad</span><span class="menu-list-price">₹129</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Avil Milk Normal</span><span class="menu-list-price">₹90</span></div>
-          <div class="menu-list-item"><span class="menu-list-name">Ibee Special Avil Milk</span><span class="menu-list-price">₹129</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Normal Falooda</span><span class="menu-list-price">â‚¹129</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Rasmalai Falooda</span><span class="menu-list-price">â‚¹159</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Dry Fruit Falooda</span><span class="menu-list-price">â‚¹169</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Ibee Special Falooda</span><span class="menu-list-price">â‚¹189</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Classic Salad</span><span class="menu-list-price">â‚¹129</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Avil Milk Normal</span><span class="menu-list-price">â‚¹90</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Ibee Special Avil Milk</span><span class="menu-list-price">â‚¹129</span></div>
         </div>
       </div>
 
@@ -630,38 +632,38 @@
       <!-- ======================== IBEE SIGNATURE ======================== -->
       <div id="sec-signature" class="menu-section-block">
         <div class="cat-header">
-          <span class="cat-emoji">⭐</span>
+          <span class="cat-emoji">â­</span>
           <h2 class="cat-title">Ibee Signature</h2>
           <span class="cat-count">7 items</span>
         </div>
         <div class="menu-list-grid">
           <div class="menu-list-item">
             <span class="menu-list-name">Old Boy<span class="menu-list-desc">Coffee with Ice cream</span></span>
-            <span class="menu-list-price">₹110</span>
+            <span class="menu-list-price">â‚¹110</span>
           </div>
           <div class="menu-list-item">
             <span class="menu-list-name">Tochs of Winser<span class="menu-list-desc">Dates and Banana</span></span>
-            <span class="menu-list-price">₹120</span>
+            <span class="menu-list-price">â‚¹120</span>
           </div>
           <div class="menu-list-item">
             <span class="menu-list-name">Royal Passion<span class="menu-list-desc">Passionfruit and Ice cream</span></span>
-            <span class="menu-list-price">₹129</span>
+            <span class="menu-list-price">â‚¹129</span>
           </div>
           <div class="menu-list-item">
             <span class="menu-list-name">Guava Blast</span>
-            <span class="menu-list-price">₹99</span>
+            <span class="menu-list-price">â‚¹99</span>
           </div>
           <div class="menu-list-item">
             <span class="menu-list-name">Kuwait Shake<span class="menu-list-desc">All fresh fruits</span></span>
-            <span class="menu-list-price">₹120</span>
+            <span class="menu-list-price">â‚¹120</span>
           </div>
           <div class="menu-list-item">
             <span class="menu-list-name">Abood<span class="menu-list-desc">Mango and Shamam</span></span>
-            <span class="menu-list-price">₹109</span>
+            <span class="menu-list-price">â‚¹109</span>
           </div>
           <div class="menu-list-item">
             <span class="menu-list-name">Mango Mastani<span class="menu-list-desc">Mango and Pineapple</span></span>
-            <span class="menu-list-price">₹109</span>
+            <span class="menu-list-price">â‚¹109</span>
           </div>
         </div>
       </div>
@@ -671,46 +673,46 @@
       <!-- ======================== BURGERS ======================== -->
       <div id="sec-burgers" class="menu-section-block">
         <div class="cat-header">
-          <span class="cat-emoji">🍔</span>
+          <span class="cat-emoji">ðŸ”</span>
           <h2 class="cat-title">Burgers</h2>
           <span class="cat-count">7 items</span>
         </div>
-        <div class="prep-note">⏱️ Food preparation 10–15 mins</div>
+        <div class="prep-note">â±ï¸ Food preparation 10â€“15 mins</div>
         <div class="menu-card-grid">
           <div class="menu-item-card" data-item="burger">
-            <span class="item-badge veg-badge">🟢 Veg</span>
+            <span class="item-badge veg-badge">ðŸŸ¢ Veg</span>
             <div class="item-name">Supreme Veg Burger</div>
-            <div class="item-price-bar">₹99</div>
+            <div class="item-price-bar">â‚¹99</div>
           </div>
           <div class="menu-item-card" data-item="burger">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Zinger Mashville</div>
-            <div class="item-price-bar">₹109</div>
+            <div class="item-price-bar">â‚¹109</div>
           </div>
           <div class="menu-item-card" data-item="burger">
-            <span class="item-badge veg-badge">🟢 Veg</span>
+            <span class="item-badge veg-badge">ðŸŸ¢ Veg</span>
             <div class="item-name">Mushroom Burger</div>
-            <div class="item-price-bar">₹119</div>
+            <div class="item-price-bar">â‚¹119</div>
           </div>
           <div class="menu-item-card" data-item="burger">
-            <span class="item-badge veg-badge">🟢 Veg</span>
+            <span class="item-badge veg-badge">ðŸŸ¢ Veg</span>
             <div class="item-name">Paneer Swis Burger</div>
-            <div class="item-price-bar">₹129</div>
+            <div class="item-price-bar">â‚¹129</div>
           </div>
           <div class="menu-item-card" data-item="burger">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Ibee Chicken Tava Burger</div>
-            <div class="item-price-bar">₹149</div>
+            <div class="item-price-bar">â‚¹149</div>
           </div>
           <div class="menu-item-card" data-item="burger">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Steak Burger</div>
-            <div class="item-price-bar">₹169</div>
+            <div class="item-price-bar">â‚¹169</div>
           </div>
           <div class="menu-item-card" data-item="burger">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Ibee Special</div>
-            <div class="item-price-bar">₹209</div>
+            <div class="item-price-bar">â‚¹209</div>
           </div>
         </div>
       </div>
@@ -720,60 +722,60 @@
       <!-- ======================== SANDWICH ======================== -->
       <div id="sec-sandwich" class="menu-section-block">
         <div class="cat-header">
-          <span class="cat-emoji">🥪</span>
+          <span class="cat-emoji">ðŸ¥ª</span>
           <h2 class="cat-title">Sandwich</h2>
           <span class="cat-count">7 items</span>
         </div>
-        <div class="prep-note">⏱️ Food preparation 10–15 mins</div>
+        <div class="prep-note">â±ï¸ Food preparation 10â€“15 mins</div>
         <div class="menu-card-grid">
           <div class="menu-item-card" data-item="sandwich">
-            <span class="item-badge veg-badge">🟢 Veg</span>
+            <span class="item-badge veg-badge">ðŸŸ¢ Veg</span>
             <div class="item-name">Veg Filly Sandwich</div>
-            <div class="item-price-bar">₹89</div>
+            <div class="item-price-bar">â‚¹89</div>
           </div>
           <div class="menu-item-card" data-item="sandwich">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Egg Sandwich</div>
-            <div class="item-price-bar">₹99</div>
+            <div class="item-price-bar">â‚¹99</div>
           </div>
           <div class="menu-item-card" data-item="sandwich">
-            <span class="item-badge veg-badge">🟢 Veg</span>
+            <span class="item-badge veg-badge">ðŸŸ¢ Veg</span>
             <div class="item-name">Nutella Banana Melt</div>
-            <div class="item-price-bar">₹99</div>
+            <div class="item-price-bar">â‚¹99</div>
           </div>
           <div class="menu-item-card" data-item="sandwich">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Chicken Sandwich</div>
-            <div class="item-price-bar">₹109</div>
+            <div class="item-price-bar">â‚¹109</div>
           </div>
           <div class="menu-item-card" data-item="sandwich">
-            <span class="item-badge veg-badge">🟢 Veg</span>
+            <span class="item-badge veg-badge">ðŸŸ¢ Veg</span>
             <div class="item-name">Grilled Mushroom Club</div>
-            <div class="item-price-bar">₹129</div>
+            <div class="item-price-bar">â‚¹129</div>
           </div>
           <div class="menu-item-card" data-item="sandwich">
-            <span class="item-badge veg-badge">🟢 Veg</span>
+            <span class="item-badge veg-badge">ðŸŸ¢ Veg</span>
             <div class="item-name">Grilled Paneer Club</div>
-            <div class="item-price-bar">₹149</div>
+            <div class="item-price-bar">â‚¹149</div>
           </div>
           <div class="menu-item-card" data-item="sandwich">
-            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <span class="item-badge nonveg-badge">ðŸ”´ Non-Veg</span>
             <div class="item-name">Ibee Filly Club Station</div>
-            <div class="item-price-bar">₹169</div>
+            <div class="item-price-bar">â‚¹169</div>
           </div>
         </div>
       </div>
 
       <!-- Delivery Banner -->
       <div style="margin-top:60px;background:linear-gradient(135deg,rgba(212,168,67,0.12),rgba(44,26,14,0.8));border:1px solid rgba(212,168,67,0.3);border-radius:24px;padding:40px;text-align:center;">
-        <h3 style="font-family:var(--font-display);font-size:1.8rem;color:var(--cream);margin-bottom:8px;">🚀 Order From Home!</h3>
+        <h3 style="font-family:var(--font-display);font-size:1.8rem;color:var(--cream);margin-bottom:8px;">ðŸš€ Order From Home!</h3>
         <p style="color:var(--text-muted);margin-bottom:24px;">Free Delivery within 7 Kms &amp; Online Delivery Available</p>
         <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:24px;">
-          <div style="background:white;border-radius:12px;padding:10px 22px;font-weight:800;color:#fc8019;font-size:1rem;">🛵 Swiggy</div>
-          <div style="background:white;border-radius:12px;padding:10px 22px;font-weight:800;color:#e23744;font-size:1rem;">🍽️ Zomato</div>
-          <div style="background:white;border-radius:12px;padding:10px 22px;font-weight:800;color:#1a73e8;font-size:1rem;">📦 Zaaroz</div>
+          <div style="background:white;border-radius:12px;padding:10px 22px;font-weight:800;color:#fc8019;font-size:1rem;">ðŸ›µ Swiggy</div>
+          <div style="background:white;border-radius:12px;padding:10px 22px;font-weight:800;color:#e23744;font-size:1rem;">ðŸ½ï¸ Zomato</div>
+          <div style="background:white;border-radius:12px;padding:10px 22px;font-weight:800;color:#1a73e8;font-size:1rem;">ðŸ“¦ Zaaroz</div>
         </div>
-        <p style="color:var(--cream);font-size:1rem;font-weight:600;">📞 <a href="tel:+918438183898" style="color:var(--gold);">+91 84381 83898</a> (Tiruchengode) &nbsp;|&nbsp; <a href="tel:+918489983898" style="color:var(--gold);">+91 84899 83898</a> (Sankagiri)</p>
+        <p style="color:var(--cream);font-size:1rem;font-weight:600;">ðŸ“ž <a href="tel:+918438183898" style="color:var(--gold);">+91 84381 83898</a> (Tiruchengode) &nbsp;|&nbsp; <a href="tel:+918489983898" style="color:var(--gold);">+91 84899 83898</a> (Sankagiri)</p>
       </div>
 
     </div>
@@ -814,8 +816,8 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2024 Ibee Resto Cafe – Indian Bakes. All Rights Reserved.</p>
-        <p>Made with ❤️ for great food lovers</p>
+        <p>Â© 2024 Ibee Resto Cafe â€“ Indian Bakes. All Rights Reserved.</p>
+        <p>Made with â¤ï¸ for great food lovers</p>
       </div>
     </div>
   </footer>
@@ -830,7 +832,7 @@
         <h2 class="lb-title" id="lb-name"></h2>
         <p class="lb-desc" id="lb-desc"></p>
         <div class="lb-price2" id="lb-price"></div>
-        <p class="lb-prep2">&#9201; Food preparation 10–15 mins</p>
+        <p class="lb-prep2">&#9201; Food preparation 10â€“15 mins</p>
       </div>
     </div>
   </div>
@@ -903,7 +905,7 @@
       document.getElementById('lb-desc').textContent = note;
       document.getElementById('lb-price').textContent = price;
       const badge = document.getElementById('lb-badge');
-      badge.textContent = isVeg ? '🟢 Veg' : '🔴 Non-Veg';
+      badge.textContent = isVeg ? 'ðŸŸ¢ Veg' : 'ðŸ”´ Non-Veg';
       badge.className = 'lb-badge2 ' + (isVeg ? 'veg-badge' : 'nonveg-badge');
       const overlay = document.getElementById('lb-overlay');
       overlay.classList.add('open');
