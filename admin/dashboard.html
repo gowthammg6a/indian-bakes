@@ -40,6 +40,7 @@
     .branch-stock-header { font-size:0.85rem; font-weight:700; color:var(--gold); margin-bottom:12px; text-transform:uppercase; letter-spacing:1px; border-bottom:1px solid rgba(212,168,67,0.2); padding-bottom:8px; }
     .notification-dot { width:8px; height:8px; border-radius:50%; background:#e74c3c; display:inline-block; margin-left:6px; animation:pulse 1.5s infinite; }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body class="admin-body">
 
@@ -144,7 +145,7 @@
             <div class="top-items-list">
               <div class="top-item-row">
                 <div class="top-item-rank">1</div>
-                <div class="top-item-name">Loaded Fries</div>
+                <div class="top-item-name"><i class="fa-solid fa-utensils"></i> Loaded Fries</div>
                 <div class="top-item-bar"><div class="top-item-bar-fill" style="width:100%"></div></div>
                 <div class="top-item-count">42 orders</div>
               </div>
@@ -307,7 +308,7 @@
 
     <div id="ibee_orders_section" style="margin-top:24px;">
 <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
-  <h3 style="font-family:Playfair Display,serif;color:#FDF6EC;font-size:1.2rem;"> Recent Orders (from Website)</h3>
+  <h3 style="font-family:Playfair Display,serif;color:#FDF6EC;font-size:1.2rem;"> <i class="fa-solid fa-box"></i> Recent Orders (from Website)</h3>
   <div style="display:flex;gap:8px;">
     <button onclick="loadOrders()" style="background:rgba(212,168,67,0.15);border:1px solid rgba(212,168,67,0.3);color:#D4A843;padding:6px 14px;border-radius:20px;cursor:pointer;font-size:0.8rem;font-family:Outfit,sans-serif;"> Refresh</button>
     <button onclick="if(confirm('Clear all orders?')){{localStorage.removeItem('ibee_orders');loadOrders();}}" style="background:rgba(231,76,60,0.1);border:1px solid rgba(231,76,60,0.3);color:#e74c3c;padding:6px 14px;border-radius:20px;cursor:pointer;font-size:0.8rem;font-family:Outfit,sans-serif;"> Clear</button>

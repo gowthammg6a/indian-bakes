@@ -120,6 +120,7 @@
     .section-divider { height: 1px; background: rgba(212,168,67,0.1); margin: 48px 0; }
   <style>@media print{.navbar,.menu-sticky-tabs,.hero,.features-strip,.footer,button,.btn-primary,.btn-outline,.wa-float,.wa-ring,.wa-tip{display:none!important}.menu-item-card{break-inside:avoid}.card-img-wrap{height:80px!important}body{background:white!important;color:#000!important}.item-name,.item-note{color:#000!important}.item-price-bar{background:#D4A843!important}}</style>
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
@@ -166,7 +167,7 @@
         <p class="branch-prompt">ðŸ—ºï¸ Select Your Nearest Branch</p>
         <div class="branch-detect-row">
           <button id="detect-location-btn" class="btn-detect" onclick="detectLocation()">
-            <span class="icon">ðŸ“</span> Auto Detect Location
+            <span class="icon">ðŸ“</span> <i class="fa-solid fa-location-crosshairs"></i> Auto Detect Location
           </button>
           <span class="or-divider">or</span>
           <span class="manual-label">choose manually</span>
@@ -203,7 +204,7 @@
   </div>
 
   <!-- STICKY CATEGORY TABS -->
-  <div style='text-align:right;padding:12px 24px 0;'><button onclick="window.print()" style="background:linear-gradient(135deg,#7B2D00,#D4A843);color:white;border:none;border-radius:30px;padding:10px 24px;font-weight:700;font-size:0.88rem;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:Outfit,sans-serif;"> Download Menu</button></div>
+  <div style='text-align:right;padding:12px 24px 0;'><button onclick="window.print()" style="background:linear-gradient(135deg,#7B2D00,#D4A843);color:white;border:none;border-radius:30px;padding:10px 24px;font-weight:700;font-size:0.88rem;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:Outfit,sans-serif;"> <i class="fa-solid fa-download"></i> Download Menu</button></div>
   <div class="menu-sticky-tabs">
     <div class="tab-scroll">
       <button class="sticky-tab-btn active" onclick="scrollToSection('sec-momos', this)">ðŸ¥Ÿ Momos</button>
@@ -234,14 +235,14 @@
           <strong id="branch-notice-name">No branch selected</strong>
           <span>Menu availability may vary by branch. Items marked unavailable are out of stock at your branch.</span>
         </div>
-        <button class="btn-change-branch" onclick="changeBranch()">Change Branch</button>
+        <button class="btn-change-branch" onclick="changeBranch()"><i class="fa-solid fa-store"></i> Change Branch</button>
       </div>
 
       <!-- ======================== MOMOS ======================== -->
       <div id="sec-momos" class="menu-section-block">
         <div class="cat-header">
           <span class="cat-emoji">ðŸ¥Ÿ</span>
-          <h2 class="cat-title">Momos</h2>
+          <h2 class="cat-title"><i class="fa-solid fa-bowl-rice"></i> Momos</h2>
           <span class="cat-count">9 items</span>
         </div>
         <div class="prep-note">â±ï¸ Food preparation 10â€“15 mins</div>
@@ -303,7 +304,7 @@
       <div id="sec-fried" class="menu-section-block">
         <div class="cat-header">
           <span class="cat-emoji">ðŸ—</span>
-          <h2 class="cat-title">Ibee Fried</h2>
+          <h2 class="cat-title"><i class="fa-solid fa-drumstick-bite"></i> Ibee Fried</h2>
           <span class="cat-count">8 items</span>
         </div>
         <div class="prep-note">â±ï¸ Food preparation 10â€“15 mins</div>
@@ -411,7 +412,7 @@
       <div id="sec-fries" class="menu-section-block">
         <div class="cat-header">
           <span class="cat-emoji">ðŸŸ</span>
-          <h2 class="cat-title">Loaded Fries</h2>
+          <h2 class="cat-title"><i class="fa-solid fa-utensils"></i> Loaded Fries</h2>
           <span class="cat-count">5 items</span>
         </div>
         <div class="prep-note">â±ï¸ Food preparation 10â€“15 mins</div>
@@ -555,7 +556,7 @@
       <div id="sec-juices" class="menu-section-block">
         <div class="cat-header">
           <span class="cat-emoji">ðŸ¹</span>
-          <h2 class="cat-title">Juices</h2>
+          <h2 class="cat-title"><i class="fa-solid fa-lemon"></i> Juices</h2>
           <span class="cat-count">17 items</span>
         </div>
 
@@ -591,7 +592,7 @@
       <div id="sec-desserts" class="menu-section-block">
         <div class="cat-header">
           <span class="cat-emoji">ðŸ®</span>
-          <h2 class="cat-title">Desserts</h2>
+          <h2 class="cat-title"><i class="fa-solid fa-cake-candles"></i> Desserts</h2>
           <span class="cat-count">6 items</span>
         </div>
         <div class="menu-list-grid">
@@ -613,7 +614,7 @@
       <div id="sec-falooda" class="menu-section-block">
         <div class="cat-header">
           <span class="cat-emoji">ðŸ§</span>
-          <h2 class="cat-title">Falooda</h2>
+          <h2 class="cat-title"><i class="fa-solid fa-star"></i> Falooda</h2>
           <span class="cat-count">7 items</span>
         </div>
         <div class="menu-list-grid">
@@ -674,7 +675,7 @@
       <div id="sec-burgers" class="menu-section-block">
         <div class="cat-header">
           <span class="cat-emoji">ðŸ”</span>
-          <h2 class="cat-title">Burgers</h2>
+          <h2 class="cat-title"><i class="fa-solid fa-burger"></i> Burgers</h2>
           <span class="cat-count">7 items</span>
         </div>
         <div class="prep-note">â±ï¸ Food preparation 10â€“15 mins</div>
@@ -723,7 +724,7 @@
       <div id="sec-sandwich" class="menu-section-block">
         <div class="cat-header">
           <span class="cat-emoji">ðŸ¥ª</span>
-          <h2 class="cat-title">Sandwich</h2>
+          <h2 class="cat-title"><i class="fa-solid fa-bread-slice"></i> Sandwich</h2>
           <span class="cat-count">7 items</span>
         </div>
         <div class="prep-note">â±ï¸ Food preparation 10â€“15 mins</div>
