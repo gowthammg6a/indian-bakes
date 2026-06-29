@@ -203,12 +203,12 @@
 }
 
 /* ================================================================
-   EMOJI FIX — Mobile render fix
+   EMOJI FIX ï¿½ Mobile render fix
    ================================================================ */
 * {
   font-family: 'Outfit', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Twemoji Mozilla', sans-serif;
 }
-/* Hide emojis in nav tabs on small screens — show text only */
+/* Hide emojis in nav tabs on small screens ï¿½ show text only */
 @media (max-width: 480px) {
   .sticky-tab-btn { font-size: 0px; letter-spacing: 0; }
   .sticky-tab-btn::first-letter { font-size: 13px; }

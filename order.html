@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Order Online â€“ Ibee Resto Cafe | Indian Bakes</title>
+  <title>Order Online â€" Ibee Resto Cafe | Indian Bakes</title>
   <meta name="description" content="Order food online from Ibee Resto Cafe. Pick your items, choose your branch, and get it delivered or pick up!" />
   <link rel="icon" href="images/logo.jpg" type="image/jpeg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -224,7 +224,7 @@
       </ul>
       <div class="nav-actions">
         <div class="branch-indicator" id="nav-branch-indicator" onclick="changeBranch()">
-          <span class="bi-dot">â—</span>
+          <span class="bi-dot">â--</span>
           <span id="current-branch-nav">Select Branch</span>
           <span class="bi-arrow">âŒ„</span>
         </div>
@@ -245,10 +245,10 @@
         <p class="branch-subtitle">Indian Bakes</p>
       </div>
       <div class="branch-card">
-        <p class="branch-prompt">ðŸ—ºï¸ Select Your Nearest Branch</p>
+        <p class="branch-prompt">ðŸ--ºï¸ Select Your Nearest Branch</p>
         <div class="branch-detect-row">
           <button id="detect-location-btn" class="btn-detect" onclick="detectLocation()">
-            <span class="icon">ðŸ“</span> <i class="fa-solid fa-location-crosshairs"></i> Auto Detect Location
+            <span class="icon">ðŸ"</span> <i class="fa-solid fa-location-crosshairs"></i> Auto Detect Location
           </button>
           <span class="or-divider">or</span>
           <span class="manual-label">choose manually</span>
@@ -279,8 +279,8 @@
   <div class="page-hero">
     <div class="page-hero-content">
       <p class="section-eyebrow">Online Ordering</p>
-      <h1 class="page-hero-title">Order Now ðŸ›’</h1>
-      <p class="page-hero-desc">Add items to cart â†’ Choose delivery/pickup â†’ Order via WhatsApp or Email!</p>
+      <h1 class="page-hero-title">Order Now ðŸ›'</h1>
+      <p class="page-hero-desc">Add items to cart â†' Choose delivery/pickup â†' Order via WhatsApp or Email!</p>
     </div>
   </div>
 
@@ -294,14 +294,14 @@
         <div class="category-filter">
           <button class="cat-filter-btn active" onclick="filterCat('all',this)">ðŸ½ï¸ All</button>
           <button class="cat-filter-btn" onclick="filterCat('momos',this)">ðŸ¥Ÿ Momos</button>
-          <button class="cat-filter-btn" onclick="filterCat('fried',this)">ðŸ— Fried</button>
-          <button class="cat-filter-btn" onclick="filterCat('burger',this)">ðŸ” Burgers</button>
+          <button class="cat-filter-btn" onclick="filterCat('fried',this)">ðŸ-- Fried</button>
+          <button class="cat-filter-btn" onclick="filterCat('burger',this)">ðŸ" Burgers</button>
           <button class="cat-filter-btn" onclick="filterCat('sandwich',this)">ðŸ¥ª Sandwich</button>
           <button class="cat-filter-btn" onclick="filterCat('wraps',this)">ðŸŒ¯ Wraps</button>
           <button class="cat-filter-btn" onclick="filterCat('fries',this)">ðŸŸ Fries</button>
           <button class="cat-filter-btn" onclick="filterCat('pasta',this)">ðŸ Pasta</button>
           <button class="cat-filter-btn" onclick="filterCat('drinks',this)">ðŸ¥¤ Drinks</button>
-          <button class="cat-filter-btn" onclick="filterCat('desserts',this)">ðŸ® Desserts</button>
+          <button class="cat-filter-btn" onclick="filterCat('desserts',this)">ðŸ&reg; Desserts</button>
         </div>
 
         <!-- MOMOS -->
@@ -309,11 +309,11 @@
         <div class="order-items-grid" data-cat="momos" id="grid-momos"></div>
 
         <!-- IBEE FRIED -->
-        <div class="order-cat-title" data-cat="fried">ðŸ— Ibee Fried</div>
+        <div class="order-cat-title" data-cat="fried">ðŸ-- Ibee Fried</div>
         <div class="order-items-grid" data-cat="fried" id="grid-fried"></div>
 
         <!-- BURGERS -->
-        <div class="order-cat-title" data-cat="burger">ðŸ” Burgers</div>
+        <div class="order-cat-title" data-cat="burger">ðŸ" Burgers</div>
         <div class="order-items-grid" data-cat="burger" id="grid-burger"></div>
 
         <!-- SANDWICH -->
@@ -337,7 +337,7 @@
         <div class="order-items-grid" data-cat="drinks" id="grid-drinks"></div>
 
         <!-- DESSERTS -->
-        <div class="order-cat-title" data-cat="desserts">ðŸ® Desserts & Falooda</div>
+        <div class="order-cat-title" data-cat="desserts">ðŸ&reg; Desserts & Falooda</div>
         <div class="order-items-grid" data-cat="desserts" id="grid-desserts"></div>
 
       </div>
@@ -345,11 +345,11 @@
       <!-- RIGHT: CART PANEL -->
       <aside class="cart-panel" id="cart-panel">
         <div class="cart-header">
-          <span class="cart-title">ðŸ›’ Your Cart</span>
+          <span class="cart-title">ðŸ›' Your Cart</span>
           <span class="cart-count-badge" id="cart-badge">0</span>
         </div>
         <div id="cart-empty" class="cart-empty">
-          <div class="cart-empty-icon">ðŸ›’</div>
+          <div class="cart-empty-icon">ðŸ›'</div>
           <p>Your cart is empty.<br/>Add items from the menu!</p>
         </div>
         <div id="cart-items-list" class="cart-items-list" style="display:none;"></div>
@@ -363,7 +363,7 @@
             ðŸš€ Place Order
           </button>
           <button style="width:100%;background:none;border:none;color:var(--text-muted);font-size:0.8rem;cursor:pointer;margin-top:8px;font-family:var(--font-body);" onclick="clearCart()">
-            ðŸ—‘ï¸ Clear Cart
+            ðŸ--'ï¸ Clear Cart
           </button>
         </div>
       </aside>
@@ -372,7 +372,7 @@
 
   <!-- FLOAT CART BUTTON (Mobile) -->
   <button class="float-cart-btn" id="float-cart-btn" onclick="openCheckout()">
-    ðŸ›’ <span id="float-cart-label">Cart (0) â€” â‚¹0</span>
+    ðŸ›' <span id="float-cart-label">Cart (0) â€" â‚¹0</span>
   </button>
 
   <!-- CHECKOUT MODAL -->
@@ -383,7 +383,7 @@
       <!-- Order Form -->
       <div id="checkout-form-section">
         <div class="checkout-head">
-          <h2>ðŸ“‹ Complete Your Order</h2>
+          <h2>ðŸ"‹ Complete Your Order</h2>
           <p style="color:var(--text-muted);font-size:0.85rem;margin-top:4px;">Fill in your details to place the order</p>
         </div>
         <div class="checkout-body">
@@ -462,7 +462,7 @@
         <p class="success-desc">
           Your order has been sent to <strong id="success-branch-name"></strong>.<br/>
           We'll call you at <strong id="success-phone"></strong> to confirm!<br/><br/>
-          <span style="color:var(--gold);">â±ï¸ Preparation time: 10â€“15 mins</span>
+          <span style="color:var(--gold);">â±ï¸ Preparation time: 10â€"15 mins</span>
         </p>
         <button class="btn-checkout" onclick="closeCheckout(); clearCart();" style="width:200px;margin:0 auto;">
           âœ… Done
@@ -474,7 +474,7 @@
   <script src="js/main.js"></script>
   <script>
     /* ============================================================
-       MENU DATA â€” Full menu with prices
+       MENU DATA â€" Full menu with prices
     ============================================================ */
     const MENU_DATA = {
       momos: [
@@ -592,7 +592,7 @@
         MENU_DATA[cat].forEach((item, idx) => {
           const displayPrice = item.price2 ? `â‚¹${item.price} / â‚¹${item.price2}` : `â‚¹${item.price}`;
           const badgeClass = item.veg ? 'veg-badge' : 'nonveg-badge';
-          const badgeText = item.veg ? 'ðŸŸ¢ Veg' : 'ðŸ”´ Non-Veg';
+          const badgeText = item.veg ? 'ðŸŸ¢ Veg' : 'ðŸ"´ Non-Veg';
           grid.innerHTML += `
             <div class="order-item-card">
               <img src="${item.img}" alt="${item.name}" class="order-item-img" onerror="this.src='images/menu1.jpg'" loading="lazy"/>
@@ -634,7 +634,7 @@
       } else {
         cart.push({ cat, idx, name: item.name, price: item.price, qty: 1 });
       }
-      btn.textContent = 'âœ“ Added';
+      btn.textContent = 'âœ" Added';
       btn.classList.add('added');
       setTimeout(() => { btn.textContent = '+ Add'; btn.classList.remove('added'); }, 1200);
       renderCart();
@@ -657,7 +657,7 @@
       const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
       const count = cart.reduce((s, c) => s + c.qty, 0);
       document.getElementById('cart-badge').textContent = count;
-      document.getElementById('float-cart-label').textContent = `Cart (${count}) â€” â‚¹${total}`;
+      document.getElementById('float-cart-label').textContent = `Cart (${count}) â€" â‚¹${total}`;
       const emptyEl = document.getElementById('cart-empty');
       const listEl = document.getElementById('cart-items-list');
       const footerEl = document.getElementById('cart-footer');
@@ -669,7 +669,7 @@
           <div class="cart-item">
             <div class="cart-item-name">${c.name}</div>
             <div class="cart-qty-ctrl">
-              <button class="qty-btn" onclick="changeQty('${c.cat}',${c.idx},-1)">âˆ’</button>
+              <button class="qty-btn" onclick="changeQty('${c.cat}',${c.idx},-1)">âˆ'</button>
               <span class="qty-num">${c.qty}</span>
               <button class="qty-btn" onclick="changeQty('${c.cat}',${c.idx},1)">+</button>
             </div>
@@ -697,7 +697,7 @@
       const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
       const summaryHTML = `
         <div class="order-summary-title">ORDER SUMMARY</div>
-        ${cart.map(c => `<div class="order-summary-item"><span>${c.name} Ã— ${c.qty}</span><span>â‚¹${c.price * c.qty}</span></div>`).join('')}
+        ${cart.map(c => `<div class="order-summary-item"><span>${c.name} Ã-- ${c.qty}</span><span>â‚¹${c.price * c.qty}</span></div>`).join('')}
         <div class="order-summary-total"><span>Total</span><span>â‚¹${total}</span></div>`;
       document.getElementById('checkout-summary').innerHTML = summaryHTML;
       document.getElementById('checkout-form-section').style.display = 'block';
@@ -721,16 +721,16 @@
       const address = document.getElementById('order-address').value.trim();
       const notes = document.getElementById('order-notes').value.trim();
       const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
-      let text = `ðŸ½ï¸ *NEW ORDER â€” Ibee Resto Cafe*\n`;
-      text += `ðŸ“ Branch: *${BRANCH_LABELS[branch]}*\n`;
-      text += `ðŸ‘¤ Name: *${name}*\n`;
-      text += `ðŸ“ž Phone: *${phone}*\n`;
+      let text = `ðŸ½ï¸ *NEW ORDER â€" Ibee Resto Cafe*\n`;
+      text += `ðŸ" Branch: *${BRANCH_LABELS[branch]}*\n`;
+      text += `ðŸ'¤ Name: *${name}*\n`;
+      text += `ðŸ"ž Phone: *${phone}*\n`;
       text += `ðŸšš Type: *${orderType === 'delivery' ? 'Home Delivery' : 'Pickup'}*\n`;
-      if (orderType === 'delivery' && address) text += `ðŸ“ Address: ${address}\n`;
-      text += `\nðŸ›’ *ITEMS:*\n`;
-      cart.forEach(c => { text += `  â€¢ ${c.name} Ã— ${c.qty} = â‚¹${c.price * c.qty}\n`; });
-      text += `\nðŸ’° *TOTAL: â‚¹${total}*\n`;
-      if (notes) text += `\nðŸ“ Notes: ${notes}`;
+      if (orderType === 'delivery' && address) text += `ðŸ" Address: ${address}\n`;
+      text += `\nðŸ›' *ITEMS:*\n`;
+      cart.forEach(c => { text += `  â€¢ ${c.name} Ã-- ${c.qty} = â‚¹${c.price * c.qty}\n`; });
+      text += `\nðŸ'° *TOTAL: â‚¹${total}*\n`;
+      if (notes) text += `\nðŸ" Notes: ${notes}`;
       return { text, name, phone, branch, total };
     }
 
@@ -750,7 +750,7 @@
       const { text, name, phone, branch, total } = buildOrderText();
       if (!name || name === 'Customer') { alert('Please enter your name!'); return; }
       if (!phone || phone === 'Not given') { alert('Please enter your phone number!'); return; }
-      const subject = encodeURIComponent(`New Order â€“ Ibee Resto Cafe ${BRANCH_LABELS[branch]}`);
+      const subject = encodeURIComponent(`New Order â€" Ibee Resto Cafe ${BRANCH_LABELS[branch]}`);
       const body = encodeURIComponent(text);
       window.open(`mailto:ibeeresto@gmail.com?subject=${subject}&body=${body}`, '_blank');
       showSuccess(name, phone, branch);

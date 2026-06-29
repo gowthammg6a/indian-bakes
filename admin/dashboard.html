@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard â€“ Ibee Admin</title>
+  <title>Dashboard â€" Ibee Admin</title>
   <link rel="icon" href="../images/logo.jpg" type="image/jpeg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -56,17 +56,17 @@
       <nav class="admin-nav">
         <p class="admin-nav-label">Main</p>
         <a href="#overview" class="admin-nav-item active" onclick="showSection('overview', this)">
-          <span class="admin-nav-icon">ðŸ“Š</span> Overview
+          <span class="admin-nav-icon">ðŸ"Š</span> Overview
         </a>
         <a href="#orders" class="admin-nav-item" onclick="showSection('orders', this)">
-          <span class="admin-nav-icon">ðŸ“‹</span> Orders
+          <span class="admin-nav-icon">ðŸ"‹</span> Orders
           <span class="notification-dot"></span>
         </a>
         <a href="#menu-control" class="admin-nav-item" onclick="showSection('menu-control', this)">
           <span class="admin-nav-icon">ðŸ½ï¸</span> Menu Control
         </a>
         <a href="#performance" class="admin-nav-item" onclick="showSection('performance', this)">
-          <span class="admin-nav-icon">ðŸ“ˆ</span> Performance
+          <span class="admin-nav-icon">ðŸ"ˆ</span> Performance
         </a>
         <p class="admin-nav-label">Management</p>
         <a href="#branches-mgmt" class="admin-nav-item" onclick="showSection('branches-mgmt', this)">
@@ -106,28 +106,28 @@
         <!-- Stats -->
         <div class="stats-grid">
           <div class="stat-card">
-            <div class="stat-card-icon">ðŸ’°</div>
+            <div class="stat-card-icon">ðŸ'°</div>
             <div class="stat-card-label">Today's Revenue</div>
             <div class="stat-card-value" id="stat-revenue">â‚¹12,480</div>
-            <div class="stat-card-change change-up">â–² 18% vs yesterday</div>
+            <div class="stat-card-change change-up">â-² 18% vs yesterday</div>
           </div>
           <div class="stat-card">
-            <div class="stat-card-icon">ðŸ“¦</div>
+            <div class="stat-card-icon">ðŸ"¦</div>
             <div class="stat-card-label">Total Orders</div>
             <div class="stat-card-value" id="stat-orders">148</div>
-            <div class="stat-card-change change-up">â–² 12 new today</div>
+            <div class="stat-card-change change-up">â-² 12 new today</div>
           </div>
           <div class="stat-card">
             <div class="stat-card-icon">â³</div>
             <div class="stat-card-label">Pending Orders</div>
             <div class="stat-card-value" id="stat-pending" style="color:#f1c40f;">7</div>
-            <div class="stat-card-change change-down">â–¼ Needs attention</div>
+            <div class="stat-card-change change-down">â-¼ Needs attention</div>
           </div>
           <div class="stat-card">
             <div class="stat-card-icon">â­</div>
             <div class="stat-card-label">Avg. Rating</div>
             <div class="stat-card-value">4.8</div>
-            <div class="stat-card-change change-up">â–² Excellent</div>
+            <div class="stat-card-change change-up">â-² Excellent</div>
           </div>
         </div>
 
@@ -135,13 +135,13 @@
         <div class="admin-grid-2">
           <!-- Weekly Sales Chart -->
           <div class="admin-panel">
-            <h3>ðŸ“Š Weekly Sales</h3>
+            <h3>ðŸ"Š Weekly Sales</h3>
             <div class="chart-bar-wrap" id="sales-chart"></div>
             <div style="display:flex;gap:8px;margin-top:8px;" id="chart-labels"></div>
           </div>
           <!-- Top Items -->
           <div class="admin-panel">
-            <h3>ðŸ”¥ Top Selling Items</h3>
+            <h3>ðŸ"¥ Top Selling Items</h3>
             <div class="top-items-list">
               <div class="top-item-row">
                 <div class="top-item-rank">1</div>
@@ -181,17 +181,17 @@
         <div class="admin-panel" style="margin-top:24px;">
           <h3>ðŸª Branch Performance Today</h3>
           <div class="performance-row">
-            <div class="perf-branch">ðŸ“ Tiruchengode (Main)</div>
+            <div class="perf-branch">ðŸ" Tiruchengode (Main)</div>
             <div class="perf-bar-track"><div class="perf-bar-fill" style="width:88%"></div></div>
             <div class="perf-val">â‚¹5,840</div>
           </div>
           <div class="performance-row">
-            <div class="perf-branch">ðŸ“ Sankagiri</div>
+            <div class="perf-branch">ðŸ" Sankagiri</div>
             <div class="perf-bar-track"><div class="perf-bar-fill" style="width:64%"></div></div>
             <div class="perf-val">â‚¹4,280</div>
           </div>
           <div class="performance-row">
-            <div class="perf-branch">ðŸ“ Kootapalli</div>
+            <div class="perf-branch">ðŸ" Kootapalli</div>
             <div class="perf-bar-track"><div class="perf-bar-fill" style="width:35%"></div></div>
             <div class="perf-val">â‚¹2,360</div>
           </div>
@@ -201,7 +201,7 @@
       <!-- ===== ORDERS SECTION ===== -->
       <section id="section-orders" style="display:none;">
         <div class="admin-panel">
-          <h3>ðŸ“‹ Pending Orders <span style="background:rgba(241,196,15,0.2);color:#f1c40f;padding:2px 10px;border-radius:20px;font-size:0.75rem;margin-left:8px;">7 Pending</span></h3>
+          <h3>ðŸ"‹ Pending Orders <span style="background:rgba(241,196,15,0.2);color:#f1c40f;padding:2px 10px;border-radius:20px;font-size:0.75rem;margin-left:8px;">7 Pending</span></h3>
           <div style="overflow-x:auto;">
             <table class="admin-table" id="orders-table">
               <thead>
@@ -234,32 +234,32 @@
       <section id="section-performance" style="display:none;">
         <div class="stats-grid" style="margin-bottom:24px;">
           <div class="stat-card">
-            <div class="stat-card-icon">ðŸ“…</div>
+            <div class="stat-card-icon">ðŸ"…</div>
             <div class="stat-card-label">This Week Revenue</div>
             <div class="stat-card-value">â‚¹68,240</div>
-            <div class="stat-card-change change-up">â–² 22% vs last week</div>
+            <div class="stat-card-change change-up">â-² 22% vs last week</div>
           </div>
           <div class="stat-card">
-            <div class="stat-card-icon">ðŸ“…</div>
+            <div class="stat-card-icon">ðŸ"…</div>
             <div class="stat-card-label">This Month Revenue</div>
             <div class="stat-card-value">â‚¹2.4L</div>
-            <div class="stat-card-change change-up">â–² 15% vs last month</div>
+            <div class="stat-card-change change-up">â-² 15% vs last month</div>
           </div>
           <div class="stat-card">
             <div class="stat-card-icon">ðŸ§¾</div>
             <div class="stat-card-label">Total Orders (Month)</div>
             <div class="stat-card-value">1,842</div>
-            <div class="stat-card-change change-up">â–² Growing steadily</div>
+            <div class="stat-card-change change-up">â-² Growing steadily</div>
           </div>
           <div class="stat-card">
-            <div class="stat-card-icon">ðŸ‘¥</div>
+            <div class="stat-card-icon">ðŸ'¥</div>
             <div class="stat-card-label">Unique Customers</div>
             <div class="stat-card-value">624</div>
-            <div class="stat-card-change change-up">â–² 48 new this month</div>
+            <div class="stat-card-change change-up">â-² 48 new this month</div>
           </div>
         </div>
         <div class="admin-panel">
-          <h3>ðŸ“ˆ Monthly Branch Comparison</h3>
+          <h3>ðŸ"ˆ Monthly Branch Comparison</h3>
           <div class="performance-row" style="margin-top:16px;">
             <div class="perf-branch">Tiruchengode</div>
             <div class="perf-bar-track"><div class="perf-bar-fill" style="width:90%"></div></div>
@@ -286,14 +286,14 @@
             <table class="admin-table">
               <thead><tr><th>Branch</th><th>Status</th><th>Orders Today</th><th>Revenue</th></tr></thead>
               <tbody>
-                <tr><td>Tiruchengode</td><td><span class="status-badge status-ready">â— Open</span></td><td>62</td><td>â‚¹5,840</td></tr>
-                <tr><td>Sankagiri</td><td><span class="status-badge status-ready">â— Open</span></td><td>51</td><td>â‚¹4,280</td></tr>
-                <tr><td>Kootapalli</td><td><span class="status-badge status-ready">â— Open</span></td><td>35</td><td>â‚¹2,360</td></tr>
+                <tr><td>Tiruchengode</td><td><span class="status-badge status-ready">â-- Open</span></td><td>62</td><td>â‚¹5,840</td></tr>
+                <tr><td>Sankagiri</td><td><span class="status-badge status-ready">â-- Open</span></td><td>51</td><td>â‚¹4,280</td></tr>
+                <tr><td>Kootapalli</td><td><span class="status-badge status-ready">â-- Open</span></td><td>35</td><td>â‚¹2,360</td></tr>
               </tbody>
             </table>
           </div>
           <div class="admin-panel">
-            <h3>ðŸ“ž Branch Contacts</h3>
+            <h3>ðŸ"ž Branch Contacts</h3>
             <table class="admin-table">
               <thead><tr><th>Branch</th><th>Phone</th><th>Manager</th></tr></thead>
               <tbody>
@@ -338,7 +338,7 @@ function loadOrders(){
     html+='<div style="color:#A89070;font-size:0.72rem;margin-top:4px;">'+o.time+'</div>';
     html+='</div>';
     html+='<div style="text-align:right;">';
-    html+='<div style="font-size:1.2rem;font-weight:800;color:#D4A843;margin-bottom:8px;">₹'+o.total+'</div>';
+    html+='<div style="font-size:1.2rem;font-weight:800;color:#D4A843;margin-bottom:8px;">&#8377;'+o.total+'</div>';
     html+='<select onchange="updateOrderStatus(\''+o.id+'\',this.value)" style="background:#1A1008;border:1px solid rgba(255,255,255,0.1);color:'+statusColor+';border-radius:8px;padding:5px 8px;font-size:0.78rem;font-family:Outfit,sans-serif;">';
     html+='<option value="pending"'+(o.status==='pending'?' selected':'')+'> Pending</option>';
     html+='<option value="ready"'+(o.status==='ready'?' selected':'')+'> Ready</option>';
@@ -367,7 +367,7 @@ document.addEventListener('DOMContentLoaded',function(){loadOrders();setInterval
     const adminBranch = sessionStorage.getItem('ibee_admin_branch') || 'all';
     document.getElementById('admin-branch-filter').value = adminBranch;
     document.getElementById('branch-display-top').textContent =
-      adminBranch === 'all' ? 'All Branches â€” Super Admin View' : adminBranch.charAt(0).toUpperCase() + adminBranch.slice(1) + ' Branch';
+      adminBranch === 'all' ? 'All Branches â€" Super Admin View' : adminBranch.charAt(0).toUpperCase() + adminBranch.slice(1) + ' Branch';
 
     // Clock
     function updateClock() {
@@ -420,13 +420,13 @@ document.addEventListener('DOMContentLoaded',function(){loadOrders();setInterval
 
     // Orders Table
     const ordersData = [
-      { id: '#IB-001', branch: 'Tiruchengode', items: 'Loaded Fries Ã— 2, Juice Ã— 1', amount: 'â‚¹277', time: '10 min ago', status: 'pending' },
-      { id: '#IB-002', branch: 'Sankagiri', items: 'Burger Ã— 1, Pasta Ã— 1', amount: 'â‚¹250', time: '15 min ago', status: 'pending' },
-      { id: '#IB-003', branch: 'Kootapalli', items: 'Croissant Ã— 3', amount: 'â‚¹135', time: '20 min ago', status: 'ready' },
-      { id: '#IB-004', branch: 'Tiruchengode', items: 'Momo Platter Ã— 2', amount: 'â‚¹220', time: '25 min ago', status: 'pending' },
-      { id: '#IB-005', branch: 'Sankagiri', items: 'Chicken Strips Ã— 1, Juice Ã— 2', amount: 'â‚¹327', time: '30 min ago', status: 'delivered' },
-      { id: '#IB-006', branch: 'Kootapalli', items: 'Cake Ã— 1 (custom)', amount: 'â‚¹450', time: '45 min ago', status: 'delivered' },
-      { id: '#IB-007', branch: 'Tiruchengode', items: 'Bread Ã— 5, Croissant Ã— 2', amount: 'â‚¹240', time: '1 hr ago', status: 'pending' },
+      { id: '#IB-001', branch: 'Tiruchengode', items: 'Loaded Fries Ã-- 2, Juice Ã-- 1', amount: 'â‚¹277', time: '10 min ago', status: 'pending' },
+      { id: '#IB-002', branch: 'Sankagiri', items: 'Burger Ã-- 1, Pasta Ã-- 1', amount: 'â‚¹250', time: '15 min ago', status: 'pending' },
+      { id: '#IB-003', branch: 'Kootapalli', items: 'Croissant Ã-- 3', amount: 'â‚¹135', time: '20 min ago', status: 'ready' },
+      { id: '#IB-004', branch: 'Tiruchengode', items: 'Momo Platter Ã-- 2', amount: 'â‚¹220', time: '25 min ago', status: 'pending' },
+      { id: '#IB-005', branch: 'Sankagiri', items: 'Chicken Strips Ã-- 1, Juice Ã-- 2', amount: 'â‚¹327', time: '30 min ago', status: 'delivered' },
+      { id: '#IB-006', branch: 'Kootapalli', items: 'Cake Ã-- 1 (custom)', amount: 'â‚¹450', time: '45 min ago', status: 'delivered' },
+      { id: '#IB-007', branch: 'Tiruchengode', items: 'Bread Ã-- 5, Croissant Ã-- 2', amount: 'â‚¹240', time: '1 hr ago', status: 'pending' },
     ];
     const tbody = document.getElementById('orders-tbody');
     ordersData.forEach(o => {
@@ -440,7 +440,7 @@ document.addEventListener('DOMContentLoaded',function(){loadOrders();setInterval
         <td><span class="status-badge status-${o.status}">${o.status.charAt(0).toUpperCase() + o.status.slice(1)}</span></td>
         <td>
           <div class="order-actions">
-            ${o.status === 'pending' ? `<button class="btn-order-action btn-ready" onclick="markReady(this, '${o.id}')">âœ“ Ready</button>` : ''}
+            ${o.status === 'pending' ? `<button class="btn-order-action btn-ready" onclick="markReady(this, '${o.id}')">âœ" Ready</button>` : ''}
             ${o.status === 'pending' ? `<button class="btn-order-action btn-cancel" onclick="cancelOrder(this, '${o.id}')">âœ•</button>` : ''}
           </div>
         </td>
@@ -452,7 +452,7 @@ document.addEventListener('DOMContentLoaded',function(){loadOrders();setInterval
       const row = btn.closest('tr');
       row.querySelector('.status-badge').className = 'status-badge status-ready';
       row.querySelector('.status-badge').textContent = 'Ready';
-      btn.closest('.order-actions').innerHTML = '<span style="color:#27ae60;font-size:0.78rem;">âœ“ Marked Ready</span>';
+      btn.closest('.order-actions').innerHTML = '<span style="color:#27ae60;font-size:0.78rem;">âœ" Marked Ready</span>';
       const pendingEl = document.getElementById('stat-pending');
       if (pendingEl) pendingEl.textContent = Math.max(0, parseInt(pendingEl.textContent) - 1);
     }
@@ -470,12 +470,12 @@ document.addEventListener('DOMContentLoaded',function(){loadOrders();setInterval
       { id: 'bread', name: 'ðŸž Fresh Bread' },
       { id: 'croissant', name: 'ðŸ¥ Butter Croissant' },
       { id: 'cake', name: 'ðŸŽ‚ Celebration Cake' },
-      { id: 'burger', name: 'ðŸ” Special Burger' },
+      { id: 'burger', name: 'ðŸ" Special Burger' },
       { id: 'fries', name: 'ðŸŸ Loaded Fries' },
       { id: 'pannerfries', name: 'ðŸ§€ Paneer Loaded Fries' },
       { id: 'momos', name: 'ðŸ¥Ÿ Momo Platter' },
       { id: 'pasta', name: 'ðŸ White Sauce Pasta' },
-      { id: 'strips', name: 'ðŸ— Chicken Strips' },
+      { id: 'strips', name: 'ðŸ-- Chicken Strips' },
       { id: 'sticks', name: 'ðŸ¢ Fired Sticks' },
       { id: 'juice', name: 'ðŸ¥¤ Tower Juice' },
     ];
@@ -490,7 +490,7 @@ document.addEventListener('DOMContentLoaded',function(){loadOrders();setInterval
     BRANCHES_ADMIN.forEach(branch => {
       const section = document.createElement('div');
       section.className = 'branch-stock-section';
-      section.innerHTML = `<div class="branch-stock-header">ðŸ“ ${branch.charAt(0).toUpperCase() + branch.slice(1)}</div>`;
+      section.innerHTML = `<div class="branch-stock-header">ðŸ" ${branch.charAt(0).toUpperCase() + branch.slice(1)}</div>`;
       MENU_ITEMS.forEach(item => {
         const isOn = STOCK_DEFAULTS[branch][item.id] !== false;
         const row = document.createElement('div');
@@ -508,14 +508,14 @@ document.addEventListener('DOMContentLoaded',function(){loadOrders();setInterval
     });
 
     function onStockToggle(branch, item, val) {
-      console.log(`[Stock] ${branch} â†’ ${item}: ${val ? 'Available' : 'Out of Stock'}`);
+      console.log(`[Stock] ${branch} â†' ${item}: ${val ? 'Available' : 'Out of Stock'}`);
       // In production, this would call an API to update the database
     }
 
     function updateBranchFilter(val) {
       sessionStorage.setItem('ibee_admin_branch', val);
       document.getElementById('branch-display-top').textContent =
-        val === 'all' ? 'All Branches â€” Super Admin View' : val.charAt(0).toUpperCase() + val.slice(1) + ' Branch';
+        val === 'all' ? 'All Branches â€" Super Admin View' : val.charAt(0).toUpperCase() + val.slice(1) + ' Branch';
     }
 
     function logout() {
