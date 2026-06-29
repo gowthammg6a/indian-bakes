@@ -32,9 +32,9 @@
       </ul>
       <div class="nav-actions">
         <div class="branch-indicator" id="nav-branch-indicator" onclick="changeBranch()">
-          <span class="bi-dot">●</span>
+          <span class="bi-dot"></span>
           <span id="current-branch-nav">Select Branch</span>
-          <span class="bi-arrow">⌄</span>
+          <span class="bi-arrow">v</span>
         </div>
         <a href="admin/login.html" class="btn-admin">Admin</a>
         <button class="hamburger" id="hamburger" onclick="toggleMenu()">
@@ -53,27 +53,27 @@
         <p class="branch-subtitle">Indian Bakes</p>
       </div>
       <div class="branch-card">
-        <p class="branch-prompt">🗺️ Select Your Nearest Branch</p>
+        <p class="branch-prompt"> Select Your Nearest Branch</p>
         <div class="branch-detect-row">
           <button id="detect-location-btn" class="btn-detect" onclick="detectLocation()">
-            <span class="icon">📍</span> Auto Detect Location
+            <span class="icon"></span> Auto Detect Location
           </button>
           <span class="or-divider">or</span>
           <span class="manual-label">choose manually</span>
         </div>
         <div class="branch-grid">
           <button class="branch-btn" onclick="selectBranch('tiruchengode')" id="branch-tiruchengode">
-            <span class="branch-icon">🏪</span>
+            <span class="branch-icon"></span>
             <span class="branch-name">Tiruchengode</span>
             <span class="branch-tag">Main Branch</span>
           </button>
           <button class="branch-btn" onclick="selectBranch('sankagiri')" id="branch-sankagiri">
-            <span class="branch-icon">🏪</span>
+            <span class="branch-icon"></span>
             <span class="branch-name">Sankagiri</span>
             <span class="branch-tag">Branch</span>
           </button>
           <button class="branch-btn" onclick="selectBranch('kootapalli')" id="branch-kootapalli">
-            <span class="branch-icon">🏪</span>
+            <span class="branch-icon"></span>
             <span class="branch-name">Kootapalli</span>
             <span class="branch-tag">Branch</span>
           </button>
@@ -110,26 +110,26 @@
               <p>Our flagship location in the heart of Tiruchengode. The original home of Ibee Resto Cafe, offering our widest menu and warmest ambiance.</p>
               <div class="branch-details-list">
                 <div class="branch-detail-item">
-                  <strong>📍 Address:</strong>
+                  <strong> Address:</strong>
                   <span>Tiruchengode, Namakkal District, Tamil Nadu</span>
                 </div>
                 <div class="branch-detail-item">
-                  <strong>📞 Phone:</strong>
+                  <strong> Phone:</strong>
                   <span><a href="tel:+918438183898" style="color:var(--gold);">+91 84381 83898</a></span>
                 </div>
                 <div class="branch-detail-item">
-                  <strong>🕐 Hours:</strong>
+                  <strong> Hours:</strong>
                   <span>Open all 7 days — Morning to Evening</span>
                 </div>
               </div>
               <div class="branch-menu-pills">
-                <span class="branch-pill">🍞 Bakes</span>
-                <span class="branch-pill">🍔 Snacks</span>
-                <span class="branch-pill">🥤 Beverages</span>
-                <span class="branch-pill">🎂 Cakes</span>
+                <span class="branch-pill"> Bakes</span>
+                <span class="branch-pill"> Snacks</span>
+                <span class="branch-pill"> Beverages</span>
+                <span class="branch-pill"> Cakes</span>
               </div>
               <div class="branch-actions">
-                <a href="https://maps.google.com/?q=Tiruchengode,Tamil+Nadu" target="_blank" rel="noopener" class="btn-primary">📍 Get Directions</a>
+                <a href="https://maps.google.com/?q=Tiruchengode,Tamil+Nadu" target="_blank" rel="noopener" class="btn-primary"> Get Directions</a>
                 <a href="menu.html" class="btn-outline" onclick="localStorage.setItem('ibee_branch','tiruchengode')">View Menu</a>
               </div>
             </div>
@@ -149,26 +149,26 @@
               <p>Bringing the Ibee experience to Sankagiri — a cozy branch loved by the local community for our fresh bakes and friendly service.</p>
               <div class="branch-details-list">
                 <div class="branch-detail-item">
-                  <strong>📍 Address:</strong>
+                  <strong> Address:</strong>
                   <span>Sankagiri, Salem District, Tamil Nadu</span>
                 </div>
                 <div class="branch-detail-item">
-                  <strong>📞 Phone:</strong>
+                  <strong> Phone:</strong>
                   <span><a href="tel:+918489983898" style="color:var(--gold);">+91 84899 83898</a></span>
                 </div>
                 <div class="branch-detail-item">
-                  <strong>🕐 Hours:</strong>
+                  <strong> Hours:</strong>
                   <span>Open all 7 days — Morning to Evening</span>
                 </div>
               </div>
               <div class="branch-menu-pills">
-                <span class="branch-pill">🍞 Bakes</span>
-                <span class="branch-pill">🥤 Beverages</span>
-                <span class="branch-pill">🍟 Fries</span>
-                <span class="branch-pill">🎂 Cakes</span>
+                <span class="branch-pill"> Bakes</span>
+                <span class="branch-pill"> Beverages</span>
+                <span class="branch-pill"> Fries</span>
+                <span class="branch-pill"> Cakes</span>
               </div>
               <div class="branch-actions">
-                <a href="https://maps.google.com/?q=Sankagiri,Salem,Tamil+Nadu" target="_blank" rel="noopener" class="btn-primary">📍 Get Directions</a>
+                <a href="https://maps.google.com/?q=Sankagiri,Salem,Tamil+Nadu" target="_blank" rel="noopener" class="btn-primary"> Get Directions</a>
                 <a href="menu.html" class="btn-outline" onclick="localStorage.setItem('ibee_branch','sankagiri')">View Menu</a>
               </div>
             </div>
@@ -188,7 +188,7 @@
                 <img src="images/cafe_exterior2.jpg" onclick="switchKoot(1)" class="koot-thumb" />
                 <img src="images/cafe_exterior3.jpg" onclick="switchKoot(2)" class="koot-thumb" />
               </div>
-              <div class="branch-img-real-badge">✅ Real Photos</div>
+              <div class="branch-img-real-badge"> Real Photos</div>
             </div>
             </div>
             <div class="branch-info">
@@ -197,26 +197,26 @@
               <p>Our newest branch serving the Kootapalli community. Same great Ibee quality, closer to your neighbourhood — fresh bakes delivered with love.</p>
               <div class="branch-details-list">
                 <div class="branch-detail-item">
-                  <strong>📍 Address:</strong>
+                  <strong> Address:</strong>
                   <span>Kootapalli, Tamil Nadu</span>
                 </div>
                 <div class="branch-detail-item">
-                  <strong>📞 Phone:</strong>
+                  <strong> Phone:</strong>
                   <span><a href="tel:+918438183898" style="color:var(--gold);">+91 84381 83898</a></span>
                 </div>
                 <div class="branch-detail-item">
-                  <strong>🕐 Hours:</strong>
+                  <strong> Hours:</strong>
                   <span>Open all 7 days — Morning to Evening</span>
                 </div>
               </div>
               <div class="branch-menu-pills">
-                <span class="branch-pill">🍞 Bakes</span>
-                <span class="branch-pill">🍔 Snacks</span>
-                <span class="branch-pill">🥤 Beverages</span>
-                <span class="branch-pill">🍝 Pasta</span>
+                <span class="branch-pill"> Bakes</span>
+                <span class="branch-pill"> Snacks</span>
+                <span class="branch-pill"> Beverages</span>
+                <span class="branch-pill"> Pasta</span>
               </div>
               <div class="branch-actions">
-                <a href="https://maps.google.com/?q=Kootapalli,Tamil+Nadu" target="_blank" rel="noopener" class="btn-primary">📍 Get Directions</a>
+                <a href="https://maps.google.com/?q=Kootapalli,Tamil+Nadu" target="_blank" rel="noopener" class="btn-primary"> Get Directions</a>
                 <a href="menu.html" class="btn-outline" onclick="localStorage.setItem('ibee_branch','kootapalli')">View Menu</a>
               </div>
             </div>
@@ -225,7 +225,7 @@
 
         <!-- More Branches Coming Soon -->
         <div style="text-align:center; margin-top:60px; padding:48px; background:rgba(212,168,67,0.05); border:1px dashed rgba(212,168,67,0.3); border-radius:24px;">
-          <div style="font-size:3rem;margin-bottom:16px;">🚀</div>
+          <div style="font-size:3rem;margin-bottom:16px;"></div>
           <h3 style="font-family:var(--font-display);font-size:1.8rem;color:var(--cream);margin-bottom:12px;">More Branches Coming Soon!</h3>
           <p style="color:var(--text-muted);max-width:480px;margin:0 auto 24px;">We're expanding across Tamil Nadu. Stay tuned for new branches in your area!</p>
           <a href="index.html#contact" class="btn-primary">Get Notified</a>
@@ -271,7 +271,7 @@
       </div>
       <div class="footer-bottom">
         <p>© 2024 Ibee Resto Cafe – Indian Bakes. All Rights Reserved.</p>
-        <p>Made with ❤️ for great food lovers</p>
+        <p>Made with  for great food lovers</p>
       </div>
     </div>
   </footer>
