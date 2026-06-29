@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ibee Resto Cafe – Indian Bakes | Tiruchengode | Sankagiri | Kootapalli</title>
+  <meta name="description" content="Ibee Resto Cafe – Indian Bakes. Fresh bakes, burgers, beverages & more. Multiple branches across Tiruchengode, Sankagiri, and Kootapalli. Order online today!" />
+  <link rel="icon" href="images/logo.jpg" type="image/jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== BRANCH SELECTOR OVERLAY ===== -->
+  <div id="branch-overlay" class="branch-overlay active">
+    <div class="branch-overlay-inner">
+      <div class="branch-logo-wrap">
+        <img src="images/logo.jpg" alt="Ibee Resto Cafe Logo" class="branch-logo" />
+        <h1 class="branch-title">Ibee Resto Cafe</h1>
+        <p class="branch-subtitle">Indian Bakes</p>
+      </div>
+      <div class="branch-card">
+        <p class="branch-prompt">🗺️ Select Your Nearest Branch</p>
+        <div class="branch-detect-row">
+          <button id="detect-location-btn" class="btn-detect" onclick="detectLocation()">
+            <span class="icon">📍</span> Auto Detect Location
+          </button>
+          <span class="or-divider">or</span>
+          <span class="manual-label">choose manually</span>
+        </div>
+        <div class="branch-grid">
+          <button class="branch-btn" onclick="selectBranch('tiruchengode')" id="branch-tiruchengode">
+            <span class="branch-icon">🏪</span>
+            <span class="branch-name">Tiruchengode</span>
+            <span class="branch-tag">Main Branch</span>
+          </button>
+          <button class="branch-btn" onclick="selectBranch('sankagiri')" id="branch-sankagiri">
+            <span class="branch-icon">🏪</span>
+            <span class="branch-name">Sankagiri</span>
+            <span class="branch-tag">Branch</span>
+          </button>
+          <button class="branch-btn" onclick="selectBranch('kootapalli')" id="branch-kootapalli">
+            <span class="branch-icon">🏪</span>
+            <span class="branch-name">Kootapalli</span>
+            <span class="branch-tag">Branch</span>
+          </button>
+        </div>
+        <p class="branch-note" id="detect-status"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.jpg" alt="Ibee Logo" class="nav-logo-img" />
+        <div class="nav-logo-text">
+          <span class="nav-brand">Ibee Resto Cafe</span>
+          <span class="nav-tagline">Indian Bakes</span>
+        </div>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="menu.html" class="nav-link">Menu</a></li>
+        <li><a href="order.html" class="nav-link" style="color:var(--gold);font-weight:700;">🛒 Order</a></li>
+        <li><a href="branches.html" class="nav-link">Branches</a></li>
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="branch-indicator" id="nav-branch-indicator" onclick="changeBranch()">
+          <span class="bi-dot">●</span>
+          <span id="current-branch-nav">Select Branch</span>
+          <span class="bi-arrow">⌄</span>
+        </div>
+        <a href="admin/login.html" class="btn-admin" id="admin-btn">Admin</a>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg-slider">
+      <div class="hero-slide active" style="background-image:url('images/cafe_exterior1.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/cafe_exterior2.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/cafe_exterior3.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/cafe_exterior4.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/cafe_exterior5.jpg')"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">✦ Freshly Baked Every Day ✦</div>
+      <div class="hero-logo-wrap">
+        <div class="hero-logo-glow"></div>
+        <img src="images/logo.jpg" alt="Ibee Resto Cafe – Indian Bakes" class="hero-logo-main" />
+      </div>
+      <h1 class="hero-title">
+        <span class="hero-title-main">Ibee Resto Cafe</span>
+        <span class="hero-title-sub">Indian Bakes</span>
+      </h1>
+      <p class="hero-desc">From oven to table — authentic Indian bakes, bold flavours & warm vibes.<br/>
+        <span class="hero-branch-tag" id="hero-branch-display">📍 Select a branch to explore menu</span>
+      </p>
+      <div class="hero-cta">
+        <a href="order.html" class="btn-primary">🛒 Order Now</a>
+        <a href="menu.html" class="btn-outline">View Menu</a>
+        <a href="branches.html" class="btn-outline">Our Branches</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll to discover</span>
+      <div class="scroll-arrow">↓</div>
+    </div>
+    <div class="hero-slide-dots" id="hero-dots"></div>
+  </section>
+
+  <!-- ===== FEATURES STRIP ===== -->
+  <section class="features-strip">
+    <div class="feature-item">
+      <img src="images/features1.jpg" alt="Fresh Bakes" class="feat-img" />
+      <span>Fresh Daily Bakes</span>
+    </div>
+    <div class="feat-divider">|</div>
+    <div class="feature-item">
+      <img src="images/features2.jpg" alt="Quick Service" class="feat-img" />
+      <span>Quick Service</span>
+    </div>
+    <div class="feat-divider">|</div>
+    <div class="feature-item">
+      <img src="images/features3.jpg" alt="Multi Branch" class="feat-img" />
+      <span>3 Branches</span>
+    </div>
+    <div class="feat-divider">|</div>
+    <div class="feature-item">
+      <span class="feat-emoji">🌟</span>
+      <span>100% Veg & Non-Veg</span>
+    </div>
+    <div class="feat-divider">|</div>
+    <div class="feature-item">
+      <img src="images/timing.jpg" alt="Timings" class="feat-img" />
+      <span>Open 7 Days</span>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT / STORY ===== -->
+  <section class="section about-section" id="about">
+    <div class="container about-grid">
+      <div class="about-images">
+        <img src="images/cafe_exterior4.jpg" alt="Ibee Cafe Kootapalli" class="about-img-main" />
+        <img src="images/cafe_exterior5.jpg" alt="Ibee Cafe Kootapalli" class="about-img-float" />
+        <div class="about-branch-tag">📍 Kootapalli Branch</div>
+      </div>
+      <div class="about-content">
+        <p class="section-eyebrow">Our Story</p>
+        <h2 class="section-title">Baked With <em>Love & Tradition</em></h2>
+        <p class="about-text">
+          Ibee Resto Cafe started with one simple dream — to bring freshly baked Indian delicacies to every doorstep. 
+          We blend traditional Indian baking techniques with modern cafe vibes, creating a unique experience you won't find anywhere else.
+        </p>
+        <p class="about-text">
+          From our signature breads to indulgent pastries, every item is prepared fresh daily. 
+          With branches across Tiruchengode, Sankagiri, and Kootapalli — we're always near you!
+        </p>
+        <div class="about-stats">
+          <div class="stat-item">
+            <span class="stat-num">3+</span>
+            <span class="stat-label">Branches</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num">50+</span>
+            <span class="stat-label">Menu Items</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num">5K+</span>
+            <span class="stat-label">Happy Customers</span>
+          </div>
+        </div>
+        <a href="branches.html" class="btn-primary">Find Nearest Branch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REVIEWS ===== -->
+  <section class="section reviews-section" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">What Customers Say</p>
+        <h2 class="section-title">Loved By Many ❤️</h2>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Best bakes in Tiruchengode! The bread is so fresh and the croissants are amazing. I come here every weekend!"</p>
+          <div class="reviewer">
+            <img src="images/customer_review1.jpg" alt="Reviewer" class="reviewer-img" />
+            <div>
+              <span class="reviewer-name">Priya S.</span>
+              <span class="reviewer-branch">Tiruchengode Branch</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card featured">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"The loaded fries and tower juice combo is unbeatable! Great ambiance, friendly staff. Highly recommended for families!"</p>
+          <div class="reviewer">
+            <img src="images/customer_review2.jpg" alt="Reviewer" class="reviewer-img" />
+            <div>
+              <span class="reviewer-name">Karthik R.</span>
+              <span class="reviewer-branch">Sankagiri Branch</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Momos here are simply outstanding! Fresh, hot and perfectly spiced. The Kootapalli branch is so convenient for us."</p>
+          <div class="reviewer">
+            <img src="images/customer_review3.jpg" alt="Reviewer" class="reviewer-img" />
+            <div>
+              <span class="reviewer-name">Meena K.</span>
+              <span class="reviewer-branch">Kootapalli Branch</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★☆</div>
+          <p class="review-text">"Their celebration cakes are gorgeous and taste incredible. Ordered for my daughter's birthday — everyone loved it!"</p>
+          <div class="reviewer">
+            <img src="images/customer_review4.jpg" alt="Reviewer" class="reviewer-img" />
+            <div>
+              <span class="reviewer-name">Anbu M.</span>
+              <span class="reviewer-branch">Tiruchengode Branch</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Paneer loaded fries is my all-time favourite! The cafe has such a warm vibe. Best hangout spot in town!"</p>
+          <div class="reviewer">
+            <img src="images/customer_review5.jpg" alt="Reviewer" class="reviewer-img" />
+            <div>
+              <span class="reviewer-name">Divya P.</span>
+              <span class="reviewer-branch">Sankagiri Branch</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"White sauce pasta is absolutely divine! Quick service, great portions. Will definitely visit again and again!"</p>
+          <div class="reviewer">
+            <img src="images/customer_review6.jpg" alt="Reviewer" class="reviewer-img" />
+            <div>
+              <span class="reviewer-name">Rajan T.</span>
+              <span class="reviewer-branch">Kootapalli Branch</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY STRIP ===== -->
+  <section class="gallery-strip">
+    <div class="gallery-track">
+      <img src="images/menu1.jpg" alt="Menu" />
+      <img src="images/menu2.jpg" alt="Menu" />
+      <img src="images/menu3.jpg" alt="Menu" />
+      <img src="images/menu4.jpg" alt="Menu" />
+      <img src="images/menu5.jpg" alt="Menu" />
+      <img src="images/menu6.jpg" alt="Menu" />
+      <img src="images/menu7.jpg" alt="Menu" />
+      <img src="images/panner_loaded_fries.jpg" alt="Paneer Loaded Fries" />
+      <img src="images/fired sticks.jpg" alt="Fired Sticks" />
+      <!-- Duplicate for seamless loop -->
+      <img src="images/menu1.jpg" alt="Menu" />
+      <img src="images/menu2.jpg" alt="Menu" />
+      <img src="images/menu3.jpg" alt="Menu" />
+      <img src="images/menu4.jpg" alt="Menu" />
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Get In Touch</p>
+        <h2 class="section-title">Visit Us Today</h2>
+      </div>
+      <div class="contact-grid">
+        <!-- Delivery Banner -->
+        <div style="grid-column:1/-1;background:linear-gradient(135deg,rgba(212,168,67,0.12),rgba(44,26,14,0.8));border:1px solid rgba(212,168,67,0.3);border-radius:24px;padding:32px;text-align:center;margin-bottom:8px;">
+          <h3 style="font-family:var(--font-display);font-size:1.5rem;color:var(--cream);margin-bottom:6px;">🚀 Order Online — Delivered to Your Door!</h3>
+          <p style="color:var(--text-muted);margin-bottom:20px;">Free Delivery within 7 Kms &amp; Online Delivery Available</p>
+          <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;">
+            <div style="background:white;border-radius:10px;padding:8px 20px;font-weight:800;color:#fc8019;font-size:0.95rem;">🛵 Swiggy</div>
+            <div style="background:white;border-radius:10px;padding:8px 20px;font-weight:800;color:#e23744;font-size:0.95rem;">🍽️ Zomato</div>
+            <div style="background:white;border-radius:10px;padding:8px 20px;font-weight:800;color:#1a73e8;font-size:0.95rem;">📦 Zaaroz</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">🏪</div>
+          <h3>Tiruchengode</h3>
+          <p>Main Branch<br/>Tiruchengode, Namakkal Dist.<br/>Tamil Nadu</p>
+          <a href="tel:+918438183898" class="contact-link">📞 +91 84381 83898</a>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">🏪</div>
+          <h3>Sankagiri</h3>
+          <p>Salem District<br/>Sankagiri, Tamil Nadu</p>
+          <a href="tel:+918489983898" class="contact-link">📞 +91 84899 83898</a>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">🏪</div>
+          <h3>Kootapalli</h3>
+          <p>Kootapalli<br/>Tamil Nadu</p>
+          <a href="tel:+918438183898" class="contact-link">📞 Contact Us</a>
+        </div>
+        <div class="contact-card contact-hours">
+          <div class="contact-icon">🕐</div>
+          <h3>Opening Hours</h3>
+          <img src="images/timing.jpg" alt="Opening hours" class="timing-img" />
+          <p>Open all 7 days a week<br/>Morning to Evening</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo.jpg" alt="Ibee Logo" class="footer-logo" />
+          <p class="footer-brand-name">Ibee Resto Cafe</p>
+          <p class="footer-tagline">Indian Bakes</p>
+          <p class="footer-desc">Freshly baked goodness, served with warmth. Your neighbourhood cafe across Tamil Nadu.</p>
+          <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px;">
+            <a href="mailto:ibeeresto@gmail.com" style="color:var(--text-muted);font-size:0.85rem;transition:color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">✉️ ibeeresto@gmail.com</a>
+            <a href="https://instagram.com/ibee_restro_cafe" target="_blank" rel="noopener" style="color:var(--text-muted);font-size:0.85rem;transition:color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">📸 @ibee_restro_cafe</a>
+          </div>
+        </div>
+        <div class="footer-links-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="branches.html">Branches</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Our Branches</h4>
+          <ul>
+            <li><a href="branches.html#tiruchengode">Tiruchengode</a></li>
+            <li><a href="branches.html#sankagiri">Sankagiri</a></li>
+            <li><a href="branches.html#kootapalli">Kootapalli</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Admin</h4>
+          <ul>
+            <li><a href="admin/login.html">Admin Login</a></li>
+            <li><a href="admin/dashboard.html">Dashboard</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Ibee Resto Cafe – Indian Bakes. All Rights Reserved.</p>
+        <p>Made with ❤️ for great food lovers</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login – Ibee Resto Cafe</title>
+  <link rel="icon" href="../images/logo.jpg" type="image/jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="admin-body">
+
+  <div class="admin-login-page">
+    <div class="admin-login-card">
+      <div class="admin-login-logo">
+        <img src="../images/logo.jpg" alt="Ibee Logo" />
+        <h2>Ibee Admin Panel</h2>
+        <p>Centralized Branch Management</p>
+      </div>
+
+      <form id="login-form" onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label class="form-label" for="username">Username</label>
+          <input type="text" id="username" class="form-input" placeholder="Enter admin username" required autocomplete="username" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <div style="position:relative;">
+            <input type="password" id="password" class="form-input" placeholder="Enter password" required autocomplete="current-password" />
+            <button type="button" onclick="togglePassword()" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1rem;" id="pwd-eye">👁️</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="branch-select">Branch</label>
+          <select id="branch-select" class="form-input admin-branch-selector" required>
+            <option value="">-- Select Branch --</option>
+            <option value="all">All Branches (Super Admin)</option>
+            <option value="tiruchengode">Tiruchengode</option>
+            <option value="sankagiri">Sankagiri</option>
+            <option value="kootapalli">Kootapalli</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-login">🔐 Login to Dashboard</button>
+        <p class="login-error" id="login-error">❌ Invalid credentials. Please try again.</p>
+      </form>
+
+      <p style="text-align:center;margin-top:20px;font-size:0.78rem;color:var(--text-muted);">
+        Demo: username <strong style="color:var(--gold);">admin</strong> / password <strong style="color:var(--gold);">ibee2024</strong>
+      </p>
+
+      <p style="text-align:center;margin-top:16px;font-size:0.8rem;">
+        <a href="../index.html" style="color:var(--text-muted);transition:color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">← Back to Website</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const ADMIN_CREDS = { username: 'admin', password: 'ibee2024' };
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
+      const branch = document.getElementById('branch-select').value;
+      const errorEl = document.getElementById('login-error');
+
+      if (user === ADMIN_CREDS.username && pass === ADMIN_CREDS.password && branch) {
+        sessionStorage.setItem('ibee_admin', 'true');
+        sessionStorage.setItem('ibee_admin_branch', branch);
+        window.location.href = 'dashboard.html';
+      } else {
+        errorEl.style.display = 'block';
+        document.getElementById('password').value = '';
+        setTimeout(() => { errorEl.style.display = 'none'; }, 3500);
+      }
+    }
+
+    function togglePassword() {
+      const input = document.getElementById('password');
+      const eye = document.getElementById('pwd-eye');
+      if (input.type === 'password') { input.type = 'text'; eye.textContent = '🙈'; }
+      else { input.type = 'password'; eye.textContent = '👁️'; }
+    }
+
+    // Redirect if already logged in
+    if (sessionStorage.getItem('ibee_admin') === 'true') {
+      window.location.href = 'dashboard.html';
+    }
+  </script>
+</body>
+</html>

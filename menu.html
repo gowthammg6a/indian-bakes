@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu – Ibee Resto Cafe | Indian Bakes</title>
+  <meta name="description" content="Explore the full menu of Ibee Resto Cafe – Indian Bakes. Momos, Loaded Fries, Wraps, Juices, Desserts, Falooda and more with prices!" />
+  <link rel="icon" href="images/logo.jpg" type="image/jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ---- Menu Page Specific ---- */
+    .menu-section-block { padding: 60px 0 0; }
+    .menu-section-block:first-child { padding-top: 0; }
+
+    .cat-header {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 28px; padding-bottom: 14px;
+      border-bottom: 2px solid rgba(212,168,67,0.2);
+    }
+    .cat-emoji { font-size: 2rem; }
+    .cat-title { font-family: var(--font-display); font-size: 1.8rem; color: var(--cream); }
+    .cat-count { font-size: 0.78rem; color: var(--gold); background: rgba(212,168,67,0.12);
+      border: 1px solid rgba(212,168,67,0.25); border-radius: 20px; padding: 3px 12px; }
+
+    /* List-style menu (for drinks/juices) */
+    .menu-list-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px;
+      margin-bottom: 20px;
+    }
+    .menu-list-item {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--dark-card); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-sm); padding: 14px 18px;
+      transition: var(--transition); gap: 12px;
+    }
+    .menu-list-item:hover { border-color: rgba(212,168,67,0.3); background: rgba(212,168,67,0.05); transform: translateX(4px); }
+    .menu-list-name { font-size: 0.9rem; color: var(--cream); font-weight: 500; flex: 1; }
+    .menu-list-desc { font-size: 0.75rem; color: var(--text-muted); display: block; margin-top: 2px; }
+    .menu-list-price { font-size: 1rem; font-weight: 700; color: var(--gold); white-space: nowrap; }
+
+    /* Card-style menu (for food items) */
+    .menu-card-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px;
+      margin-bottom: 20px;
+    }
+    .menu-item-card {
+      background: var(--dark-card); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius); overflow: hidden; transition: var(--transition);
+      display: flex; flex-direction: column;
+    }
+    .menu-item-card:hover { transform: translateY(-6px); border-color: rgba(212,168,67,0.3); box-shadow: var(--shadow-card); }
+    .menu-item-card .item-name { font-size: 0.88rem; font-weight: 600; color: var(--cream); padding: 12px 14px 4px; line-height: 1.3; }
+    .menu-item-card .item-note { font-size: 0.72rem; color: var(--text-muted); padding: 0 14px 8px; }
+    .menu-item-card .item-price-bar {
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+      color: var(--dark); font-weight: 800; font-size: 0.9rem;
+      padding: 8px 14px; margin-top: auto;
+    }
+    .menu-item-card .item-badge {
+      display: inline-block; font-size: 0.65rem; padding: 2px 8px;
+      border-radius: 20px; margin: 4px 14px;
+    }
+    .veg-badge { background: rgba(39,174,96,0.15); color: #27ae60; border: 1px solid rgba(39,174,96,0.3); }
+    .nonveg-badge { background: rgba(231,76,60,0.15); color: #e74c3c; border: 1px solid rgba(231,76,60,0.3); }
+
+    /* Card image */
+    .card-img-wrap { width:100%; height:160px; overflow:hidden; position:relative; flex-shrink:0; }
+    .card-img-wrap img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease; display:block; }
+    .menu-item-card:hover .card-img-wrap img { transform:scale(1.1); }
+    .menu-item-card { cursor:pointer; }
+    .tap-hint { position:absolute; inset:0; background:rgba(0,0,0,0); color:white; font-size:0.8rem; font-weight:700; display:flex; align-items:center; justify-content:center; opacity:0; transition:all 0.3s; letter-spacing:0.5px; gap:5px; }
+    .menu-item-card:hover .tap-hint { background:rgba(0,0,0,0.52); opacity:1; }
+
+    /* Lightbox */
+    .lb-overlay { position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.93); backdrop-filter:blur(16px); display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity 0.35s; padding:20px; }
+    .lb-overlay.open { opacity:1; pointer-events:all; }
+    .lb-box { background:#1A1008; border:1px solid rgba(212,168,67,0.35); border-radius:24px; overflow:hidden; max-width:470px; width:100%; transform:scale(0.85) translateY(40px); transition:transform 0.42s cubic-bezier(0.34,1.56,0.64,1); position:relative; max-height:92vh; display:flex; flex-direction:column; }
+    .lb-overlay.open .lb-box { transform:scale(1) translateY(0); }
+    .lb-img { width:100%; height:280px; object-fit:cover; display:block; flex-shrink:0; transition:transform 6s ease; }
+    .lb-overlay.open .lb-img { transform:scale(1.06); }
+    .lb-body { padding:22px 26px 28px; overflow-y:auto; }
+    .lb-badge2 { font-size:0.72rem; padding:3px 12px; border-radius:20px; display:inline-block; margin-bottom:12px; font-weight:600; }
+    .lb-title { font-family:'Playfair Display',serif; font-size:1.55rem; color:#FDF6EC; margin-bottom:6px; line-height:1.2; }
+    .lb-desc { color:#A89070; font-size:0.85rem; margin-bottom:14px; }
+    .lb-price2 { font-size:2rem; font-weight:800; color:#D4A843; }
+    .lb-prep2 { color:#A89070; font-size:0.78rem; margin-top:8px; }
+    .lb-close { position:absolute; top:14px; right:14px; background:rgba(0,0,0,0.65); border:1px solid rgba(255,255,255,0.15); color:white; width:38px; height:38px; border-radius:50%; font-size:1.3rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.25s; z-index:10; line-height:1; }
+    .lb-close:hover { background:#e74c3c; border-color:#e74c3c; transform:scale(1.1) rotate(90deg); }
+
+    /* Tabs sticky */
+    .menu-sticky-tabs {
+      position: sticky; top: 70px; z-index: 100;
+      background: rgba(15,10,5,0.97); backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(212,168,67,0.15); padding: 12px 0;
+      margin-bottom: 40px;
+    }
+    .menu-sticky-tabs .tab-scroll {
+      display: flex; gap: 10px; overflow-x: auto; padding: 0 24px;
+      scrollbar-width: none;
+    }
+    .menu-sticky-tabs .tab-scroll::-webkit-scrollbar { display: none; }
+    .sticky-tab-btn {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-muted); padding: 8px 18px; border-radius: var(--radius-pill);
+      font-size: 0.82rem; font-weight: 600; white-space: nowrap; cursor: pointer;
+      transition: var(--transition); font-family: var(--font-body);
+    }
+    .sticky-tab-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .sticky-tab-btn.active { background: var(--gold); border-color: var(--gold); color: var(--dark); }
+
+    .prep-note {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(241,196,15,0.1); border: 1px solid rgba(241,196,15,0.25);
+      color: #f1c40f; font-size: 0.78rem; padding: 6px 14px;
+      border-radius: var(--radius-pill); margin-bottom: 20px;
+    }
+    .section-divider { height: 1px; background: rgba(212,168,67,0.1); margin: 48px 0; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.jpg" alt="Ibee Logo" class="nav-logo-img" />
+        <div class="nav-logo-text">
+          <span class="nav-brand">Ibee Resto Cafe</span>
+          <span class="nav-tagline">Indian Bakes</span>
+        </div>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="menu.html" class="nav-link active">Menu</a></li>
+        <li><a href="branches.html" class="nav-link">Branches</a></li>
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="branch-indicator" id="nav-branch-indicator" onclick="changeBranch()">
+          <span class="bi-dot">●</span>
+          <span id="current-branch-nav">Select Branch</span>
+          <span class="bi-arrow">⌄</span>
+        </div>
+        <a href="admin/login.html" class="btn-admin">Admin</a>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BRANCH OVERLAY -->
+  <div id="branch-overlay" class="branch-overlay">
+    <div class="branch-overlay-inner">
+      <div class="branch-logo-wrap">
+        <img src="images/logo.jpg" alt="Ibee Resto Cafe Logo" class="branch-logo" />
+        <h1 class="branch-title">Ibee Resto Cafe</h1>
+        <p class="branch-subtitle">Indian Bakes</p>
+      </div>
+      <div class="branch-card">
+        <p class="branch-prompt">🗺️ Select Your Nearest Branch</p>
+        <div class="branch-detect-row">
+          <button id="detect-location-btn" class="btn-detect" onclick="detectLocation()">
+            <span class="icon">📍</span> Auto Detect Location
+          </button>
+          <span class="or-divider">or</span>
+          <span class="manual-label">choose manually</span>
+        </div>
+        <div class="branch-grid">
+          <button class="branch-btn" onclick="selectBranch('tiruchengode')" id="branch-tiruchengode">
+            <span class="branch-icon">🏪</span>
+            <span class="branch-name">Tiruchengode</span>
+            <span class="branch-tag">Main Branch</span>
+          </button>
+          <button class="branch-btn" onclick="selectBranch('sankagiri')" id="branch-sankagiri">
+            <span class="branch-icon">🏪</span>
+            <span class="branch-name">Sankagiri</span>
+            <span class="branch-tag">Branch</span>
+          </button>
+          <button class="branch-btn" onclick="selectBranch('kootapalli')" id="branch-kootapalli">
+            <span class="branch-icon">🏪</span>
+            <span class="branch-name">Kootapalli</span>
+            <span class="branch-tag">Branch</span>
+          </button>
+        </div>
+        <p class="branch-note" id="detect-status"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <p class="section-eyebrow">Explore</p>
+      <h1 class="page-hero-title">Our Full Menu</h1>
+      <p class="page-hero-desc">Fresh, flavourful & made with love — every single day.</p>
+    </div>
+  </div>
+
+  <!-- STICKY CATEGORY TABS -->
+  <div class="menu-sticky-tabs">
+    <div class="tab-scroll">
+      <button class="sticky-tab-btn active" onclick="scrollToSection('sec-momos', this)">🥟 Momos</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-fried', this)">🍗 Ibee Fried</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-burgers', this)">🍔 Burgers</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-sandwich', this)">🥪 Sandwich</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-wraps', this)">🌯 Wraps</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-fries', this)">🍟 Loaded Fries</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-pasta', this)">🍝 Pasta & Salad</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-mojito', this)">🥤 Mojito</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-shakes', this)">🍦 Shakes</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-chilled', this)">❄️ Chilled</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-juices', this)">🍹 Juices</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-desserts', this)">🍮 Desserts</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-falooda', this)">🍧 Falooda</button>
+      <button class="sticky-tab-btn" onclick="scrollToSection('sec-signature', this)">⭐ Signature</button>
+    </div>
+  </div>
+
+  <!-- MENU CONTENT -->
+  <main class="menu-page">
+    <div class="container" style="padding-bottom: 80px;">
+
+      <!-- Branch Notice -->
+      <div class="branch-notice" id="branch-notice-bar" style="margin-bottom:40px;">
+        <div class="branch-notice-icon">📍</div>
+        <div class="branch-notice-text">
+          <strong id="branch-notice-name">No branch selected</strong>
+          <span>Menu availability may vary by branch. Items marked unavailable are out of stock at your branch.</span>
+        </div>
+        <button class="btn-change-branch" onclick="changeBranch()">Change Branch</button>
+      </div>
+
+      <!-- ======================== MOMOS ======================== -->
+      <div id="sec-momos" class="menu-section-block">
+        <div class="cat-header">
+          <span class="cat-emoji">🥟</span>
+          <h2 class="cat-title">Momos</h2>
+          <span class="cat-count">9 items</span>
+        </div>
+        <div class="prep-note">⏱️ Food preparation 10–15 mins</div>
+        <div class="menu-card-grid">
+          <div class="menu-item-card" data-item="momos">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Steamed Momos</div>
+            <div class="item-price-bar">₹79 / ₹89</div>
+          </div>
+          <div class="menu-item-card" data-item="momos">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Fried KFC</div>
+            <div class="item-price-bar">₹99 / ₹109</div>
+          </div>
+          <div class="menu-item-card" data-item="momos">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Peri Peri Steamed</div>
+            <div class="item-price-bar">₹89 / ₹99</div>
+          </div>
+          <div class="menu-item-card" data-item="momos">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Dynamite Steamed</div>
+            <div class="item-price-bar">₹99 / ₹109</div>
+          </div>
+          <div class="menu-item-card" data-item="momos">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Lemon Pepper Steamed</div>
+            <div class="item-price-bar">₹89 / ₹99</div>
+          </div>
+          <div class="menu-item-card" data-item="momos">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Afghani Steamed Momos</div>
+            <div class="item-price-bar">₹99 / ₹109</div>
+          </div>
+          <div class="menu-item-card" data-item="momos">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Lemon Pepper Fried</div>
+            <div class="item-price-bar">₹99 / ₹109</div>
+          </div>
+          <div class="menu-item-card" data-item="momos">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Momo Combo</div>
+            <div class="item-note">8 Pcs: 2 Fried, 2 Peri Peri, 2 Dynamite, 2 Lemon</div>
+            <div class="item-price-bar">₹139 / ₹149</div>
+          </div>
+          <div class="menu-item-card" data-item="momos">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Momo Platter</div>
+            <div class="item-note">12 Pcs Momos and Fries</div>
+            <div class="item-price-bar">₹209 / ₹219</div>
+          </div>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text-muted);margin-bottom:8px;">* Price: Veg / Non-Veg</p>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- ======================== IBEE FRIED ======================== -->
+      <div id="sec-fried" class="menu-section-block">
+        <div class="cat-header">
+          <span class="cat-emoji">🍗</span>
+          <h2 class="cat-title">Ibee Fried</h2>
+          <span class="cat-count">8 items</span>
+        </div>
+        <div class="prep-note">⏱️ Food preparation 10–15 mins</div>
+        <div class="menu-card-grid">
+          <div class="menu-item-card" data-item="strips">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Pop Chicken</div>
+            <div class="item-price-bar">₹99</div>
+          </div>
+          <div class="menu-item-card" data-item="strips">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Peri Peri Pops</div>
+            <div class="item-price-bar">₹109</div>
+          </div>
+          <div class="menu-item-card" data-item="strips">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Dynamic Pops</div>
+            <div class="item-price-bar">₹119</div>
+          </div>
+          <div class="menu-item-card" data-item="strips">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Normal Strips (4 Pcs)</div>
+            <div class="item-price-bar">₹129</div>
+          </div>
+          <div class="menu-item-card" data-item="strips">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Peri Peri Strips (4 Pcs)</div>
+            <div class="item-price-bar">₹149</div>
+          </div>
+          <div class="menu-item-card" data-item="strips">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Lemon Pepper Strips (4 Pcs)</div>
+            <div class="item-price-bar">₹159</div>
+          </div>
+          <div class="menu-item-card" data-item="strips">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Wings (5 Pcs)</div>
+            <div class="item-price-bar">₹169</div>
+          </div>
+          <div class="menu-item-card" data-item="strips">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Lolly Pop (5 Pcs)</div>
+            <div class="item-price-bar">₹189</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- ======================== WRAP ROLLS & QUESADILLA ======================== -->
+      <div id="sec-wraps" class="menu-section-block">
+        <div class="cat-header">
+          <span class="cat-emoji">🌯</span>
+          <h2 class="cat-title">Wrap Rolls & Quesadilla</h2>
+          <span class="cat-count">8 items</span>
+        </div>
+        <div class="prep-note">⏱️ Food preparation 10–15 mins</div>
+        <div class="menu-card-grid">
+          <div class="menu-item-card" data-item="wraps">
+            <span class="item-badge veg-badge">🟢 Veg</span>
+            <div class="item-name">Veg Cheese Wrap</div>
+            <div class="item-price-bar">₹99</div>
+          </div>
+          <div class="menu-item-card" data-item="wraps">
+            <span class="item-badge veg-badge">🟢 Veg</span>
+            <div class="item-name">Grilled Mushroom Cream Wrap</div>
+            <div class="item-price-bar">₹119</div>
+          </div>
+          <div class="menu-item-card" data-item="wraps">
+            <span class="item-badge veg-badge">🟢 Veg</span>
+            <div class="item-name">Creamy Paneer Wrap</div>
+            <div class="item-price-bar">₹119</div>
+          </div>
+          <div class="menu-item-card" data-item="wraps">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Zinger Spider Wrap</div>
+            <div class="item-price-bar">₹99</div>
+          </div>
+          <div class="menu-item-card" data-item="wraps">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Malaysian Roll</div>
+            <div class="item-price-bar">₹129</div>
+          </div>
+          <div class="menu-item-card" data-item="wraps">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Italian Chicken Wrap</div>
+            <div class="item-price-bar">₹149</div>
+          </div>
+          <div class="menu-item-card" data-item="wraps">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Mariya</div>
+            <div class="item-price-bar">₹149</div>
+          </div>
+          <div class="menu-item-card" data-item="wraps">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Steak Quesadilla</div>
+            <div class="item-price-bar">₹139</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- ======================== LOADED FRIES ======================== -->
+      <div id="sec-fries" class="menu-section-block">
+        <div class="cat-header">
+          <span class="cat-emoji">🍟</span>
+          <h2 class="cat-title">Loaded Fries</h2>
+          <span class="cat-count">5 items</span>
+        </div>
+        <div class="prep-note">⏱️ Food preparation 10–15 mins</div>
+        <div class="menu-card-grid">
+          <div class="menu-item-card" data-item="fries">
+            <span class="item-badge veg-badge">🟢 Veg</span>
+            <div class="item-name">Classic Loaded Fries</div>
+            <div class="item-price-bar">₹159</div>
+          </div>
+          <div class="menu-item-card" data-item="fries">
+            <span class="item-badge veg-badge">🟢 Veg</span>
+            <div class="item-name">Peri Peri Loaded Fries</div>
+            <div class="item-price-bar">₹169</div>
+          </div>
+          <div class="menu-item-card" data-item="pannerfries">
+            <span class="item-badge veg-badge">🟢 Veg</span>
+            <div class="item-name">Grilled Paneer Loaded Fries</div>
+            <div class="item-price-bar">₹180</div>
+          </div>
+          <div class="menu-item-card" data-item="fries">
+            <span class="item-badge veg-badge">🟢 Veg</span>
+            <div class="item-name">Walking Nachos Veg</div>
+            <div class="item-price-bar">₹129</div>
+          </div>
+          <div class="menu-item-card" data-item="fries">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Walking Nachos Chicken</div>
+            <div class="item-price-bar">₹139</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- ======================== PASTA & SALAD ======================== -->
+      <div id="sec-pasta" class="menu-section-block">
+        <div class="cat-header">
+          <span class="cat-emoji">🍝</span>
+          <h2 class="cat-title">Pasta & Salad</h2>
+          <span class="cat-count">5 items</span>
+        </div>
+        <div class="prep-note">⏱️ Food preparation 10–15 mins</div>
+        <div class="menu-card-grid">
+          <div class="menu-item-card" data-item="pasta">
+            <span class="item-badge veg-badge">🟢 Veg</span>
+            <div class="item-name">Creamy Malai White Pasta</div>
+            <div class="item-price-bar">₹169 / ₹179</div>
+          </div>
+          <div class="menu-item-card" data-item="pasta">
+            <span class="item-badge veg-badge">🟢 Veg</span>
+            <div class="item-name">Red Sauce Pasta</div>
+            <div class="item-price-bar">₹169 / ₹190</div>
+          </div>
+          <div class="menu-item-card" data-item="pasta">
+            <span class="item-badge veg-badge">🟢 Veg</span>
+            <div class="item-name">Green Salad Veg</div>
+            <div class="item-price-bar">₹90</div>
+          </div>
+          <div class="menu-item-card" data-item="pasta">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Fried Chicken Salad</div>
+            <div class="item-price-bar">₹129</div>
+          </div>
+          <div class="menu-item-card" data-item="pasta">
+            <span class="item-badge veg-badge">🟢 Veg</span>
+            <div class="item-name">Cut Fruit Salad</div>
+            <div class="item-price-bar">₹89</div>
+          </div>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text-muted);">* Pasta price: Small / Large</p>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- ======================== POP MOJITO ======================== -->
+      <div id="sec-mojito" class="menu-section-block">
+        <div class="cat-header">
+          <span class="cat-emoji">🥤</span>
+          <h2 class="cat-title">Pop Mojito</h2>
+          <span class="cat-count">10 items</span>
+        </div>
+        <div class="menu-list-grid">
+          <div class="menu-list-item"><span class="menu-list-name">Blue Refresh</span><span class="menu-list-price">₹80</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Mint Mojito</span><span class="menu-list-price">₹90</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Pink Punisher</span><span class="menu-list-price">₹90</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Spicy Orange Mojito</span><span class="menu-list-price">₹99</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Green Apple Mojito</span><span class="menu-list-price">₹99</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Ice Spice Mojito</span><span class="menu-list-price">₹99</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Royal Passion</span><span class="menu-list-price">₹109</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Pineapple Soda</span><span class="menu-list-price">₹49</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Grape Soda</span><span class="menu-list-price">₹49</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Lemon Soda</span><span class="menu-list-price">₹30</span></div>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- ======================== ICE CREAM SHAKES ======================== -->
+      <div id="sec-shakes" class="menu-section-block">
+        <div class="cat-header">
+          <span class="cat-emoji">🍦</span>
+          <h2 class="cat-title">Snazzy Ice Cream Shakes</h2>
+          <span class="cat-count">11 items</span>
+        </div>
+        <div class="menu-list-grid">
+          <div class="menu-list-item"><span class="menu-list-name">Pink & Pink</span><span class="menu-list-price">₹90</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Vanilla</span><span class="menu-list-price">₹90</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Green Channel</span><span class="menu-list-price">₹99</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Tangy Mango</span><span class="menu-list-price">₹99</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Chocolate Sharja</span><span class="menu-list-price">₹99</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Sweety Jackfruit</span><span class="menu-list-price">₹99</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Choco Lover</span><span class="menu-list-price">₹109</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Oreo Shake</span><span class="menu-list-price">₹109</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Kitkat Lover</span><span class="menu-list-price">₹109</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Sithfal</span><span class="menu-list-price">₹109</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Nutella Fantasy</span><span class="menu-list-price">₹140</span></div>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- ======================== CHILLED BOY ======================== -->
+      <div id="sec-chilled" class="menu-section-block">
+        <div class="cat-header">
+          <span class="cat-emoji">❄️</span>
+          <h2 class="cat-title">Chilled Boy</h2>
+          <span class="cat-count">5 items</span>
+        </div>
+        <div class="menu-list-grid">
+          <div class="menu-list-item"><span class="menu-list-name">Chilled Coffee</span><span class="menu-list-price">₹69</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Chilled Boost</span><span class="menu-list-price">₹59</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Chilled Horlicks</span><span class="menu-list-price">₹59</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Chilled Badam</span><span class="menu-list-price">₹50</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Chilled Rosemilk</span><span class="menu-list-price">₹50</span></div>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- ======================== JUICES ======================== -->
+      <div id="sec-juices" class="menu-section-block">
+        <div class="cat-header">
+          <span class="cat-emoji">🍹</span>
+          <h2 class="cat-title">Juices</h2>
+          <span class="cat-count">17 items</span>
+        </div>
+
+        <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--gold);margin-bottom:16px;">🍊 Fresh Juices</h3>
+        <div class="menu-list-grid" style="margin-bottom:32px;">
+          <div class="menu-list-item"><span class="menu-list-name">Orange Juice</span><span class="menu-list-price">₹60</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Musambi Juice</span><span class="menu-list-price">₹50</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Apple Juice</span><span class="menu-list-price">₹70</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Pomegranate Juice</span><span class="menu-list-price">₹70</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Grape Juice</span><span class="menu-list-price">₹60</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Muskmelon Juice</span><span class="menu-list-price">₹40</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Carrot Juice</span><span class="menu-list-price">₹80</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Pineapple Juice</span><span class="menu-list-price">₹60</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Watermelon Juice</span><span class="menu-list-price">₹50</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Fresh Lemon Juice</span><span class="menu-list-price">₹30</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Mint Lemon Juice</span><span class="menu-list-price">₹40</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Spanish Lemon Juice</span><span class="menu-list-price">₹49</span></div>
+        </div>
+
+        <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--gold);margin-bottom:16px;">🍊 Pure Juices</h3>
+        <div class="menu-list-grid">
+          <div class="menu-list-item"><span class="menu-list-name">Orange Pure</span><span class="menu-list-price">₹90</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Musambi Pure</span><span class="menu-list-price">₹80</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Apple Pure</span><span class="menu-list-price">₹100</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Pomegranate Pure</span><span class="menu-list-price">₹150</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Pineapple Pure</span><span class="menu-list-price">₹90</span></div>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- ======================== DESSERTS ======================== -->
+      <div id="sec-desserts" class="menu-section-block">
+        <div class="cat-header">
+          <span class="cat-emoji">🍮</span>
+          <h2 class="cat-title">Desserts</h2>
+          <span class="cat-count">6 items</span>
+        </div>
+        <div class="menu-list-grid">
+          <div class="menu-list-item"><span class="menu-list-name">Brownie with Ice cream</span><span class="menu-list-price">₹139</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Jamun Ice cream</span><span class="menu-list-price">₹79</span></div>
+          <div class="menu-list-item">
+            <span class="menu-list-name">Banana Fry and Ice cream<span class="menu-list-desc">Seasonal availability</span></span>
+            <span class="menu-list-price">₹90</span>
+          </div>
+          <div class="menu-list-item"><span class="menu-list-name">Sizzling Brownie</span><span class="menu-list-price">₹149</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Sizzling Blondie</span><span class="menu-list-price">₹159</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Butter Gulkhand</span><span class="menu-list-price">₹139</span></div>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- ======================== FALOODA ======================== -->
+      <div id="sec-falooda" class="menu-section-block">
+        <div class="cat-header">
+          <span class="cat-emoji">🍧</span>
+          <h2 class="cat-title">Falooda</h2>
+          <span class="cat-count">7 items</span>
+        </div>
+        <div class="menu-list-grid">
+          <div class="menu-list-item"><span class="menu-list-name">Normal Falooda</span><span class="menu-list-price">₹129</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Rasmalai Falooda</span><span class="menu-list-price">₹159</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Dry Fruit Falooda</span><span class="menu-list-price">₹169</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Ibee Special Falooda</span><span class="menu-list-price">₹189</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Classic Salad</span><span class="menu-list-price">₹129</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Avil Milk Normal</span><span class="menu-list-price">₹90</span></div>
+          <div class="menu-list-item"><span class="menu-list-name">Ibee Special Avil Milk</span><span class="menu-list-price">₹129</span></div>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- ======================== IBEE SIGNATURE ======================== -->
+      <div id="sec-signature" class="menu-section-block">
+        <div class="cat-header">
+          <span class="cat-emoji">⭐</span>
+          <h2 class="cat-title">Ibee Signature</h2>
+          <span class="cat-count">7 items</span>
+        </div>
+        <div class="menu-list-grid">
+          <div class="menu-list-item">
+            <span class="menu-list-name">Old Boy<span class="menu-list-desc">Coffee with Ice cream</span></span>
+            <span class="menu-list-price">₹110</span>
+          </div>
+          <div class="menu-list-item">
+            <span class="menu-list-name">Tochs of Winser<span class="menu-list-desc">Dates and Banana</span></span>
+            <span class="menu-list-price">₹120</span>
+          </div>
+          <div class="menu-list-item">
+            <span class="menu-list-name">Royal Passion<span class="menu-list-desc">Passionfruit and Ice cream</span></span>
+            <span class="menu-list-price">₹129</span>
+          </div>
+          <div class="menu-list-item">
+            <span class="menu-list-name">Guava Blast</span>
+            <span class="menu-list-price">₹99</span>
+          </div>
+          <div class="menu-list-item">
+            <span class="menu-list-name">Kuwait Shake<span class="menu-list-desc">All fresh fruits</span></span>
+            <span class="menu-list-price">₹120</span>
+          </div>
+          <div class="menu-list-item">
+            <span class="menu-list-name">Abood<span class="menu-list-desc">Mango and Shamam</span></span>
+            <span class="menu-list-price">₹109</span>
+          </div>
+          <div class="menu-list-item">
+            <span class="menu-list-name">Mango Mastani<span class="menu-list-desc">Mango and Pineapple</span></span>
+            <span class="menu-list-price">₹109</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- ======================== BURGERS ======================== -->
+      <div id="sec-burgers" class="menu-section-block">
+        <div class="cat-header">
+          <span class="cat-emoji">🍔</span>
+          <h2 class="cat-title">Burgers</h2>
+          <span class="cat-count">7 items</span>
+        </div>
+        <div class="prep-note">⏱️ Food preparation 10–15 mins</div>
+        <div class="menu-card-grid">
+          <div class="menu-item-card" data-item="burger">
+            <span class="item-badge veg-badge">🟢 Veg</span>
+            <div class="item-name">Supreme Veg Burger</div>
+            <div class="item-price-bar">₹99</div>
+          </div>
+          <div class="menu-item-card" data-item="burger">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Zinger Mashville</div>
+            <div class="item-price-bar">₹109</div>
+          </div>
+          <div class="menu-item-card" data-item="burger">
+            <span class="item-badge veg-badge">🟢 Veg</span>
+            <div class="item-name">Mushroom Burger</div>
+            <div class="item-price-bar">₹119</div>
+          </div>
+          <div class="menu-item-card" data-item="burger">
+            <span class="item-badge veg-badge">🟢 Veg</span>
+            <div class="item-name">Paneer Swis Burger</div>
+            <div class="item-price-bar">₹129</div>
+          </div>
+          <div class="menu-item-card" data-item="burger">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Ibee Chicken Tava Burger</div>
+            <div class="item-price-bar">₹149</div>
+          </div>
+          <div class="menu-item-card" data-item="burger">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Steak Burger</div>
+            <div class="item-price-bar">₹169</div>
+          </div>
+          <div class="menu-item-card" data-item="burger">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Ibee Special</div>
+            <div class="item-price-bar">₹209</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- ======================== SANDWICH ======================== -->
+      <div id="sec-sandwich" class="menu-section-block">
+        <div class="cat-header">
+          <span class="cat-emoji">🥪</span>
+          <h2 class="cat-title">Sandwich</h2>
+          <span class="cat-count">7 items</span>
+        </div>
+        <div class="prep-note">⏱️ Food preparation 10–15 mins</div>
+        <div class="menu-card-grid">
+          <div class="menu-item-card" data-item="sandwich">
+            <span class="item-badge veg-badge">🟢 Veg</span>
+            <div class="item-name">Veg Filly Sandwich</div>
+            <div class="item-price-bar">₹89</div>
+          </div>
+          <div class="menu-item-card" data-item="sandwich">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Egg Sandwich</div>
+            <div class="item-price-bar">₹99</div>
+          </div>
+          <div class="menu-item-card" data-item="sandwich">
+            <span class="item-badge veg-badge">🟢 Veg</span>
+            <div class="item-name">Nutella Banana Melt</div>
+            <div class="item-price-bar">₹99</div>
+          </div>
+          <div class="menu-item-card" data-item="sandwich">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Chicken Sandwich</div>
+            <div class="item-price-bar">₹109</div>
+          </div>
+          <div class="menu-item-card" data-item="sandwich">
+            <span class="item-badge veg-badge">🟢 Veg</span>
+            <div class="item-name">Grilled Mushroom Club</div>
+            <div class="item-price-bar">₹129</div>
+          </div>
+          <div class="menu-item-card" data-item="sandwich">
+            <span class="item-badge veg-badge">🟢 Veg</span>
+            <div class="item-name">Grilled Paneer Club</div>
+            <div class="item-price-bar">₹149</div>
+          </div>
+          <div class="menu-item-card" data-item="sandwich">
+            <span class="item-badge nonveg-badge">🔴 Non-Veg</span>
+            <div class="item-name">Ibee Filly Club Station</div>
+            <div class="item-price-bar">₹169</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Delivery Banner -->
+      <div style="margin-top:60px;background:linear-gradient(135deg,rgba(212,168,67,0.12),rgba(44,26,14,0.8));border:1px solid rgba(212,168,67,0.3);border-radius:24px;padding:40px;text-align:center;">
+        <h3 style="font-family:var(--font-display);font-size:1.8rem;color:var(--cream);margin-bottom:8px;">🚀 Order From Home!</h3>
+        <p style="color:var(--text-muted);margin-bottom:24px;">Free Delivery within 7 Kms &amp; Online Delivery Available</p>
+        <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:24px;">
+          <div style="background:white;border-radius:12px;padding:10px 22px;font-weight:800;color:#fc8019;font-size:1rem;">🛵 Swiggy</div>
+          <div style="background:white;border-radius:12px;padding:10px 22px;font-weight:800;color:#e23744;font-size:1rem;">🍽️ Zomato</div>
+          <div style="background:white;border-radius:12px;padding:10px 22px;font-weight:800;color:#1a73e8;font-size:1rem;">📦 Zaaroz</div>
+        </div>
+        <p style="color:var(--cream);font-size:1rem;font-weight:600;">📞 <a href="tel:+918438183898" style="color:var(--gold);">+91 84381 83898</a> (Tiruchengode) &nbsp;|&nbsp; <a href="tel:+918489983898" style="color:var(--gold);">+91 84899 83898</a> (Sankagiri)</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo.jpg" alt="Ibee Logo" class="footer-logo" />
+          <p class="footer-brand-name">Ibee Resto Cafe</p>
+          <p class="footer-tagline">Indian Bakes</p>
+          <p class="footer-desc">Freshly baked goodness served with warmth across Tamil Nadu.</p>
+        </div>
+        <div class="footer-links-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="branches.html">Branches</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Branches</h4>
+          <ul>
+            <li><a href="branches.html#tiruchengode">Tiruchengode</a></li>
+            <li><a href="branches.html#sankagiri">Sankagiri</a></li>
+            <li><a href="branches.html#kootapalli">Kootapalli</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Admin</h4>
+          <ul>
+            <li><a href="admin/login.html">Admin Login</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Ibee Resto Cafe – Indian Bakes. All Rights Reserved.</p>
+        <p>Made with ❤️ for great food lovers</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="lb-overlay" id="lb-overlay" onclick="closeLB(event)">
+    <div class="lb-box" id="lb-box">
+      <button class="lb-close" onclick="closeLightbox()">&#10005;</button>
+      <img src="" alt="" class="lb-img" id="lb-img" />
+      <div class="lb-body">
+        <span class="lb-badge2" id="lb-badge"></span>
+        <h2 class="lb-title" id="lb-name"></h2>
+        <p class="lb-desc" id="lb-desc"></p>
+        <div class="lb-price2" id="lb-price"></div>
+        <p class="lb-prep2">&#9201; Food preparation 10–15 mins</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    /* ---- Image map for each data-item ---- */
+    const ITEM_IMAGES = {
+      momos:      '../images/momo_platter.jpg',
+      strips:     '../images/strips.jpg',
+      burger:     '../images/burger.jpg',
+      sandwich:   '../images/menu1.jpg',
+      wraps:      '../images/menu2.jpg',
+      fries:      '../images/loaded_fries.jpg',
+      pannerfries:'../images/panner_loaded_fries.jpg',
+      pasta:      '../images/white_sause_pasta.jpg',
+      juice:      '../images/tower_juice.png',
+      shakes:     '../images/menu4.jpg',
+      chilled:    '../images/menu5.jpg',
+      desserts:   '../images/cake.png',
+      falooda:    '../images/menu6.jpg',
+      signature:  '../images/menu7.jpg',
+      bread:      '../images/bread1.png',
+      croissant:  '../images/croissant.png',
+      sticks:     '../images/fired sticks.jpg',
+    };
+    /* Relative path fix when not in subfolder */
+    const IMG_BASE = 'images/';
+
+    /* Inject card-img-wrap into every .menu-item-card */
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.menu-item-card').forEach(card => {
+        const itemKey = card.getAttribute('data-item') || 'momos';
+        const imgSrc = IMG_BASE + (ITEM_IMAGES[itemKey] || 'menu1.jpg').replace('../images/', '');
+        const badge = card.querySelector('.item-badge');
+        const name  = card.querySelector('.item-name')  ? card.querySelector('.item-name').textContent.trim() : '';
+        const note  = card.querySelector('.item-note')  ? card.querySelector('.item-note').textContent.trim() : '';
+        const price = card.querySelector('.item-price-bar') ? card.querySelector('.item-price-bar').textContent.trim() : '';
+        const isVeg = badge && badge.classList.contains('veg-badge');
+        const badgeHTML = badge ? badge.outerHTML : '';
+
+        /* Build image wrap */
+        const wrap = document.createElement('div');
+        wrap.className = 'card-img-wrap';
+        wrap.innerHTML = '<img src="' + imgSrc + '" alt="' + name + '" loading="lazy" /><div class="tap-hint">&#128247; Tap to view</div>';
+        card.insertBefore(wrap, card.firstChild);
+
+        /* Attach click handler */
+        card.addEventListener('click', () => {
+          openLightbox(imgSrc, name, note, price, isVeg, badgeHTML);
+        });
+      });
+
+      /* Restore branch */
+      const saved = localStorage.getItem('ibee_branch');
+      if (saved) {
+        selectBranch(saved);
+        const noticeEl = document.getElementById('branch-notice-name');
+        if (noticeEl && BRANCHES[saved]) noticeEl.textContent = BRANCHES[saved].label;
+      } else {
+        const overlay = document.getElementById('branch-overlay');
+        if (overlay) overlay.classList.add('active');
+      }
+    });
+
+    /* ---- Lightbox functions ---- */
+    function openLightbox(img, name, note, price, isVeg, badgeHTML) {
+      document.getElementById('lb-img').src = img;
+      document.getElementById('lb-name').textContent = name;
+      document.getElementById('lb-desc').textContent = note;
+      document.getElementById('lb-price').textContent = price;
+      const badge = document.getElementById('lb-badge');
+      badge.textContent = isVeg ? '🟢 Veg' : '🔴 Non-Veg';
+      badge.className = 'lb-badge2 ' + (isVeg ? 'veg-badge' : 'nonveg-badge');
+      const overlay = document.getElementById('lb-overlay');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lb-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function closeLB(e) {
+      if (e.target === document.getElementById('lb-overlay')) closeLightbox();
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    function scrollToSection(id, btn) {
+      document.querySelectorAll('.sticky-tab-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      const el = document.getElementById(id);
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY - 130;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</html>
